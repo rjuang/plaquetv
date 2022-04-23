@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import PlaqueView from './PlaqueView';
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { useDispatch } from 'react-redux'
+import { useStore } from 'react-redux'
 
 function App() {
+  const dispatch = useDispatch();
+  const store = useStore();
+  // const customRenderItem = (item, props) => {
+  //   i++;
+  //   return <item.type page={i} />};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Carousel autoPlay={true} infiniteLoop={true} interval={15000} 
+    // renderItem={customRenderItem}
+    onChange={() => dispatch({ type: 'nextPage' })}
+     >
+<PlaqueView />
+<PlaqueView />
+
+    </Carousel>
+    
+);
 }
 
 export default App;
