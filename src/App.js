@@ -15,9 +15,9 @@ function App() {
   //   return <item.type page={i} />};
 
   return (
-    <Carousel autoPlay={true} infiniteLoop={true} interval={15000} 
+    <Carousel autoPlay={true} infiniteLoop={true} interval={15000} stopOnHover={false}
     // renderItem={customRenderItem}
-    onChange={() => dispatch({ type: 'nextPage' })}
+    onChange={() => dispatch({ type: 'nextPage' })} showThumbs={false} showStatus={false} showIndicators={false}
      >
 <PlaqueView />
 <PlaqueView />
