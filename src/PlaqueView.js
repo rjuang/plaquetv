@@ -7,10 +7,10 @@ import getImages from './plaques';
 
 function PlaqueView(props) {
   const page = useSelector((state) => state.page)
-  let rowHeight=(window.innerHeight-20)*0.5
+  let rowHeight=(window.innerHeight-2)*0.5
   var scale = rowHeight / 2550;
   var picWidth = 834 * scale;
-  var picsPerCol = Math.round(window.innerWidth / picWidth);
+  var picsPerCol = Math.round(window.innerWidth / picWidth)+1;
 
   let plaques=getImages(picsPerCol, page);
 
@@ -24,7 +24,7 @@ function PlaqueView(props) {
     <Gallery
 images={plaques}
 enableLightbox={false}
-enableImageSelection={false} rowHeight={rowHeight} />
+enableImageSelection={false} rowHeight={rowHeight} margin={0} maxRows={2} />
     </div>);
 }
 
