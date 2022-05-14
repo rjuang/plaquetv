@@ -15,9 +15,9 @@
 
 
 
-function getImages(imagesPerCol, page) {
+export function getImages(picsPerCol, page) {
   let imageSets= [];
-  let imagesPerPage=imagesPerCol*2;
+  let imagesPerPage=picsPerCol*2;
 
   let images=[
     {
@@ -56,6 +56,17 @@ function getImages(imagesPerCol, page) {
   
   imageSets.push(images);
   
+  images=[]
+  for (var i=0; i<imagesPerPage; i++) {
+    images.push(  {
+      src: "mmb_blank.png",
+      thumbnail: "mmb_blank.png",
+      thumbnailWidth: 834,
+      thumbnailHeight: 2550,
+  });
+}
+  imageSets.push(images);
+
   images=[
     {
       src: "rebirth_2205001.png",
@@ -95,4 +106,5 @@ function getImages(imagesPerCol, page) {
   return imageSets[page];
 }
 
+export const totalPages=3;
 export default getImages;

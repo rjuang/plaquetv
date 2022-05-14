@@ -1,18 +1,38 @@
-import { createAction, createReducer } from '@reduxjs/toolkit'
-import plaques from './plaques';
+import { createAction } from '@reduxjs/toolkit'
+import {totalPages} from './plaques';
 
 const nextPage = createAction('nextPage')
 
-const initialState = { page: 0 }
+const initialState = { 
+  gallery1Page: 0,
+  gallery2Page: totalPages-1,
+  currentGallery: 1,
+  screenshots: {2: true}
+}
 
-const reducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(nextPage, (state, action) => {
-      state.page++
-      if (state.page >= plaques.length) {
-        state.page=0;
+export default function appReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'nextPage': {
+      let gallery1Page=state.gallery1Page;
+      let gallery2Page=state.gallery2Page;
+      let currentGallery=1;
+
+      if (state.currentGallery == 1) {
+        gallery2Page=(state.gallery2Page+2) % totalPages;
+        currentGallery=2;
+      } else {
+        gallery1Page=(state.gallery1Page+2) % totalPages;
+        currentGallery=1;
       }
-    })
-})
 
-export default reducer;
+      return {
+        ...state,
+        gallery1Page: gallery1Page,
+        gallery2Page: gallery2Page,
+        currentGallery: currentGallery,
+      }
+    }
+    default:
+      return state
+  }
+}

@@ -1,26 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
 import PlaqueView from './PlaqueView';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useDispatch } from 'react-redux'
-import { useStore } from 'react-redux'
 
 function App() {
   const dispatch = useDispatch();
-  const store = useStore();
   // const customRenderItem = (item, props) => {
   //   i++;
   //   return <item.type page={i} />};
 
   return (
-    <Carousel autoPlay={true} infiniteLoop={true} interval={15000} stopOnHover={false}
+    <Carousel autoPlay={true} infiniteLoop={true} interval={20000} stopOnHover={false} transitionTime={5000}
     // renderItem={customRenderItem}
     onChange={() => dispatch({ type: 'nextPage' })} showThumbs={false} showStatus={false} showIndicators={false}
      >
-<PlaqueView />
-<PlaqueView />
+<PlaqueView galleryNum={1} />
+<PlaqueView galleryNum={2} />
 
     </Carousel>
     
