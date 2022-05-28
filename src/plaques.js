@@ -12,7 +12,17 @@
 // }
 //   imageSets.push(images);
 // }
-
+const beneficiaryStyle = {
+  maxHeight: "240px",
+  position: "absolute",
+  bottom: "60px",
+  right: "16px",
+  writingMode: "vertical-rl",
+  // width: "100%",
+  color: "black",
+  padding: "2px",
+  fontSize: "90%"
+};
 
 
 export function getImages(picsPerCol, page) {
@@ -44,6 +54,17 @@ export function getImages(picsPerCol, page) {
     thumbnailWidth: 834,
     thumbnailHeight: 2550,
   },
+  {src: "mmb_blank.png",
+  thumbnail: "mmb_blank.png",
+  thumbnailWidth: 834,
+  thumbnailHeight: 2550,
+  caption: "Mianyu Dong",
+    customOverlay: (
+      <div>
+      <div style={beneficiaryStyle} value={"A"}>Mianyu Dong</div>
+      {/* <div style={benefactorStyle}></div> */}
+  </div>),
+  }
   ];
     for (var i=images.length; i<imagesPerPage; i++) {
       images.push(  {
