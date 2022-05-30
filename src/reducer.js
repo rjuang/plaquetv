@@ -2,12 +2,14 @@ import { createAction } from '@reduxjs/toolkit'
 import {totalPages} from './plaques';
 
 const nextPage = createAction('nextPage')
+const search = createAction('search')
 
 const initialState = { 
   gallery1Page: 0,
   gallery2Page: totalPages-1,
   currentGallery: 1,
-  screenshots: {2: true}
+  screenshots: {2: false},
+  search: null,
 }
 
 export default function appReducer(state = initialState, action) {
@@ -31,6 +33,13 @@ export default function appReducer(state = initialState, action) {
         gallery2Page: gallery2Page,
         currentGallery: currentGallery,
       }
+    }
+    case 'search': {
+      return {
+        ...state,
+        search: action.payload
+      }
+      
     }
     default:
       return state
