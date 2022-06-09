@@ -11,11 +11,36 @@ import {Popover, OverlayTrigger, CloseButton} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBox from "./SearchBox";
 import { useSelector } from 'react-redux'
-import SearchView from './SearchView';
+import SearchView from './PlaqueGallery';
 
 function App() {
   const dispatch = useDispatch();
   const search=useSelector((state)=>state.search);
+  const searchResults=useSelector((state)=>state.searchResults);
+
+  let rowHeight=(window.innerHeight-2)*0.5
+  var scale = rowHeight / 2550;
+  var picWidth = 834 * scale;
+  var picsPerCol = Math.round(window.innerWidth / picWidth)+1;
+
+  // const getAllPlaques=()=>{
+  //   fetch('plaques.json'
+  //   ,{
+  //     headers : { 
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //      }
+  //   }
+  //   )
+  //     .then(function(response){
+  //       let plaquesJson= response.json();
+  //       dispatch({type: 'allPlaques', payload: plaquesJson});
+  //     });
+  // }
+
+  // useEffect(()=>{
+  //   getAllPlaques()
+  // },[])
 
   let render=<></>;
   if (search == null || search === "") {
@@ -23,12 +48,13 @@ function App() {
       // renderItem={customRenderItem}
       onChange={() => dispatch({ type: 'nextPage' })} showThumbs={false} showStatus={false} showIndicators={false}
        >
-  <PlaqueView galleryNum={1} />
-  <PlaqueView galleryNum={2} />
+  <PlaqueView galleryNum={1} rowHeight={rowHeight} picsPerCol={picsPerCol}  />
+  <PlaqueView galleryNum={2} rowHeight={rowHeight} picsPerCol={picsPerCol} />
   
       </Carousel>);
   } else {
-    render=(<SearchView />);
+
+    render=(<SearchView plaques={searchResults} rowHeight={rowHeight} picsPerCol={picsPerCol} />);
 
   }
 
