@@ -11,6 +11,8 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import allPlaques from "./plaques.json";
 import Stack from "@mui/material/Stack";
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
 function SearchBox() {
   const dispatch = useDispatch();
@@ -28,13 +30,37 @@ function SearchBox() {
     
   });
 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const ids=allPlaques.map(p=>p.id);
+  const beneficiarys=allPlaques.map(p=>p.benefiary);
+  const requesters=allPlaques.map(p=>p.requester);
+  const peoples=Array.from(new Set(beneficiarys, requesters));
+  const options=ids.concat(ids, peoples);
+
     return (
       <div>
-      <Popup open={showPopup} onClose={()=> dispatch({ type: 'setPopup', payload: false })} modal>
+        <Modal
+  open={showPopup}
+  onClose={()=> dispatch({ type: 'setPopup', payload: false })}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+  <Box sx={style}>
+      {/* <Popup open={showPopup} onClose={()=> dispatch({ type: 'setPopup', payload: false })} modal> */}
       <Autocomplete
         multiple
-        options={allPlaques}
-        getOptionLabel={(option) => option.id}
+        options={options}
         defaultValue={[]}
         renderInput={(params) => (
           <TextField
@@ -51,7 +77,6 @@ function SearchBox() {
       <Button variant="outlined" onClick={()=> dispatch({ type: 'setPopup', payload: false })}>  Cancel</Button>
       <Button variant="contained" onClick={()=> dispatch({ type: 'setPopup', payload: false })}>Search</Button>
 </Stack>
-<br/><br/><br/><br/><br/><br/>
 
 
 
@@ -63,7 +88,9 @@ function SearchBox() {
   />
   <Form.Control size="lg" type="text" placeholder="Name on plaque or plaque ID" onChange={(event)=> dispatch({ type: 'search', payload: event.target.value })} value={search} />
   </Form>  */}
-      </Popup>
+
+      </Box>
+</Modal>
     </div>
     )
 }
