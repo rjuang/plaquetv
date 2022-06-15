@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import {Popover, OverlayTrigger, CloseButton, Form} from 'react-bootstrap';
+import { Popover, OverlayTrigger, CloseButton, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -17,9 +17,9 @@ import Modal from '@mui/material/Modal';
 function SearchBox() {
   const dispatch = useDispatch();
 
-  const showPopup=useSelector((state)=>state.showSearchPopup);
-  const search=useSelector((state)=>state.search);
-  const exactSearch=useSelector((state)=>state.exactSearch);
+  const showPopup = useSelector((state) => state.showSearchPopup);
+  const search = useSelector((state) => state.search);
+  const exactSearch = useSelector((state) => state.exactSearch);
 
   useKeypress(['Home', 'MediaPlayPause'], () => {
     if (showPopup === true) {
@@ -27,7 +27,7 @@ function SearchBox() {
     } else {
       dispatch({ type: 'setPopup', payload: true })
     }
-    
+
   });
 
   const style = {
@@ -42,41 +42,44 @@ function SearchBox() {
     p: 4,
   };
 
-  const ids=allPlaques.map(p=>p.id);
-  const beneficiarys=allPlaques.map(p=>p.benefiary);
-  const requesters=allPlaques.map(p=>p.requester);
-  const peoples=Array.from(new Set(beneficiarys, requesters));
-  const options=ids.concat(ids, peoples);
+  const ids = allPlaques.map(p => p.id);
+  const beneficiarys = allPlaques.map(p => p.benefiary);
+  const requesters = allPlaques.map(p => p.requester);
+  const peoples = Array.from(new Set(beneficiarys, requesters));
+  const options = ids.concat(peoples);
 
-    return (
-      <div>
-        <Modal
-  open={showPopup}
-  onClose={()=> dispatch({ type: 'setPopup', payload: false })}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
->
-  <Box sx={style}>
-      {/* <Popup open={showPopup} onClose={()=> dispatch({ type: 'setPopup', payload: false })} modal> */}
-      <Autocomplete
-        multiple
-        options={options}
-        defaultValue={[]}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            variant="standard"
-            label="Search for Plaques"
-            placeholder="Name on plaque or plaque ID"
+  return (
+    <div>
+      <Modal
+        open={showPopup}
+        onClose={() => dispatch({ type: 'setPopup', payload: false })}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          {/* <Popup open={showPopup} onClose={()=> dispatch({ type: 'setPopup', payload: false })} modal> */}
+          <Autocomplete
+            multiple
+            handleHomeEndKeys={false}
+            options={options}
+            defaultValue={[]}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                variant="standard"
+                label="Search for Plaques"
+                placeholder="Name on plaque or plaque ID"
+              />
+            )}
+            onChange={(event, value)=>dispatch({ type: 'search', payload: value })}
+            value={search}
           />
-        )}
-      />
-      <br/>
-      <Stack direction="row" justifyContent="space-evenly"
-  alignItems="center" spacing={2}>
-      <Button variant="outlined" onClick={()=> dispatch({ type: 'setPopup', payload: false })}>  Cancel</Button>
-      <Button variant="contained" onClick={()=> dispatch({ type: 'setPopup', payload: false })}>Search</Button>
-</Stack>
+          <br />
+          <Stack direction="row" justifyContent="space-evenly"
+            alignItems="center" spacing={2}>
+            <Button variant="outlined" onClick={() => dispatch({ type: 'setPopup', payload: false })}>  Cancel</Button>
+            <Button variant="contained" onClick={() => dispatch({ type: 'setPopup', payload: false })}>Search</Button>
+          </Stack>
 
 
 
@@ -89,10 +92,10 @@ function SearchBox() {
   <Form.Control size="lg" type="text" placeholder="Name on plaque or plaque ID" onChange={(event)=> dispatch({ type: 'search', payload: event.target.value })} value={search} />
   </Form>  */}
 
-      </Box>
-</Modal>
+        </Box>
+      </Modal>
     </div>
-    )
+  )
 }
 
 export default SearchBox;

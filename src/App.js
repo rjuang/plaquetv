@@ -43,7 +43,7 @@ function App() {
   // },[])
 
   let render=<></>;
-  if (search == null || search === "") {
+  if (search == null || search.length === 0) {
     render=(<Carousel autoPlay={true} infiniteLoop={true} interval={20000} stopOnHover={false} transitionTime={5000}
       // renderItem={customRenderItem}
       onChange={() => dispatch({ type: 'nextPage' })} showThumbs={false} showStatus={false} showIndicators={false}

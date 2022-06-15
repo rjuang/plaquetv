@@ -12,7 +12,7 @@ const initialState = {
   gallery2Page: totalPages-1,
   currentGallery: 1,
   screenshots: {2: false},
-  search: "",
+  search: [],
   exactSearch: false,
   showSearchPopup: false,
   allPlaques:[],
