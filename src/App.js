@@ -20,10 +20,14 @@ function App() {
   var scale = rowHeight / 2550;
   var picWidth = 834 * scale;
   var picsPerCol = Math.round(window.innerWidth / picWidth)+1;
+  const imagesPerPage=picsPerCol*2;
 
   useEffect(()=>{
-    const allPlaques=preprocessPlaques();
-    dispatch({type:"setAllPlaques", payload: allPlaques});
+    const allPlaques=preprocessPlaques(picsPerCol);
+    const totalPages=Math.round(allPlaques.length/imagesPerPage);
+    dispatch({type:"setAllPlaques", payload: 
+    {allPlaques, totalPages
+  }});
   },[])
 
   return (

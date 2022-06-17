@@ -5,13 +5,13 @@ import allPlaques from "./plaques.json";
 export function preprocessPlaques(picsPerCol) {
   const mmbPlaques=allPlaques.filter(p=>p.type==="mmb");
   const rebirthPlaques=allPlaques.filter(p=>p.type==="rebirth");
-  const wishPlaques=allPlaques.filter(p=>p.type==="wish");
+  // const wishPlaques=allPlaques.filter(p=>p.type==="wish");
   
   const imagesPerPage = picsPerCol * 2;
   
   const pad1Len=Math.ceil(mmbPlaques.length/imagesPerPage)*imagesPerPage-mmbPlaques.length;
   const pad2Len=Math.ceil(rebirthPlaques.length/imagesPerPage)*imagesPerPage-rebirthPlaques.length;
-  const pad3Len=Math.ceil(wishPlaques.length/imagesPerPage)*imagesPerPage-wishPlaques.length;
+  // const pad3Len=Math.ceil(wishPlaques.length/imagesPerPage)*imagesPerPage-wishPlaques.length;
 
   const padItem={
     "id": "",
@@ -23,23 +23,41 @@ export function preprocessPlaques(picsPerCol) {
     "type": "",
     "searchable": false
 };
-  const pad1=Array(pad1Len).fill(padItem);
-  const pad2=Array(pad2Len).fill(padItem);
-  const pad3=Array(pad3Len).fill(padItem);
-  const plaques=Array.from(mmbPlaques, pad1, rebirthPlaques, pad2, wishPlaques, pad3);
+  const pad1=Array(pad1Len).fill({
+    "id": "",
+    "file": "mmb_blank.png",
+    "benefiary": "",
+    "requester": "",
+    "requestDate": "",
+    "expiryDate": "",
+    "type": "",
+    "searchable": false
+});
+  const pad2=Array(pad2Len).fill({
+    "id": "",
+    "file": "rebirth_blank.png",
+    "benefiary": "",
+    "requester": "",
+    "requestDate": "",
+    "expiryDate": "",
+    "type": "",
+    "searchable": false
+});
+  // const pad3=Array(pad3Len).fill(padItem);
+  const plaques=mmbPlaques.concat(pad1, rebirthPlaques, pad2
+    // , wishPlaques, pad3
+    );
 
   return plaques;
 }
 
-export function getImages(picsPerCol, page) {
-  const searchResults=useSelector((state)=>state.searchResults);
-  const plaques=useSelector((state)=>state.allPlaques);
+export function getImages(allPlaques, picsPerCol, page) {
 
   const imagesPerPage=picsPerCol*2;
   const start=imagesPerPage*page;
   const end=imagesPerPage*(page+1);
 
-  return plaques.slice(start, end);
+  return allPlaques.slice(start, end);
 
   // let imageSets = [];
   // let imagesPerPage = picsPerCol * 2;
@@ -138,5 +156,4 @@ export function getImages(picsPerCol, page) {
   // return imageSets[page];
 }
 
-export const totalPages = 3;
 export default getImages;

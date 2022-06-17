@@ -4,9 +4,11 @@ import Gallery from 'react-grid-gallery';
 import { useSelector } from 'react-redux'
 import {getImages, getImagesFromMetadata} from './plaques';
 import axios from 'axios';
-
+import PlaqueGallery from './PlaqueGallery';
 
 function PlaqueView(props) {
+  const searchResults=useSelector((state)=>state.searchResults);
+  const allPlaques=useSelector((state)=>state.allPlaques);
     const gallery1Page=useSelector((state)=>state.gallery1Page);
     const gallery2Page=useSelector((state)=>state.gallery2Page);
     let page=0;
@@ -22,9 +24,9 @@ function PlaqueView(props) {
 
   let plaques=[];
   if (searchResults.length != 0) {
-    plaques=getImages(picsPerCol, 0);
+    plaques=getImages(allPlaques, picsPerCol, 0);
   } else {
-    plaques=getImages(picsPerCol, page);
+    plaques=getImages(allPlaques, picsPerCol, page);
   }         
 
   return <PlaqueGallery 

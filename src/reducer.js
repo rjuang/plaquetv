@@ -1,5 +1,4 @@
 import { createAction } from '@reduxjs/toolkit'
-import {totalPages} from './plaques';
 import searchPlaques from './searchLogic';
 
 const nextPage = createAction('nextPage')
@@ -8,8 +7,9 @@ const setPopup = createAction('setPopup')
 
 const initialState = { 
   gallery1Page: 0,
-  gallery2Page: totalPages-1,
+  gallery2Page: 0,
   currentGallery: 1,
+  totalPages: 0,
   autoPlayCarousel: true,
   search: [],
   exactSearch: false,
@@ -28,10 +28,10 @@ export default function appReducer(state = initialState, action) {
       let currentGallery=1;
 
       if (state.currentGallery == 1) {
-        gallery2Page=(state.gallery2Page+2) % totalPages;
+        gallery2Page=(state.gallery2Page+2) % state.totalPages;
         currentGallery=2;
       } else {
-        gallery1Page=(state.gallery1Page+2) % totalPages;
+        gallery1Page=(state.gallery1Page+2) % state.totalPages;
         currentGallery=1;
       }
 
@@ -45,25 +45,52 @@ export default function appReducer(state = initialState, action) {
     case 'search': {
       const searchTerm=action.payload;
       const searchResults=searchPlaques(searchTerm);
-      return {
+
+      let newState={
         ...state,
         search: action.payload,
-        searchResults: searchResults
+        searchResults: searchResults,
+        
+      };
+
+      if (state.searchResults.length ===0) {
+        newState={
+          ...newState,
+          autoPlayCarousel: true,
+          showHighlightPopup: false,
+          highlightPlaque: null
+        }
       }
+
+      return newState;
       
     }
     case 'setPopup': {
-      return {
+      let newState={
         ...state,
         showSearchPopup: action.payload
 
+      };
+
+      if (action.payload===false && state.searchResults.length !=0) {
+        newState={
+          ...newState,
+          autoPlayCarousel: false,
+          showHighlightPopup: true,
+          highlightPlaque: state.searchResults[0]
+        }
       }
+      return newState;
+
+
 
     }
     case 'setAllPlaques':{
       return {
         ...state,
-        allPlaques: action.payload
+        allPlaques: action.payload.allPlaques,
+        totalPages: action.payload.totalPages,
+        gallery2Page: action.payload.totalPages-1,
       }
     }
     default:

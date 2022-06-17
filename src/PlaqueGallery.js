@@ -1,8 +1,9 @@
 
 import React from 'react';
 import Gallery from 'react-grid-gallery';
-import { useSelector } from 'react-redux';
-
+import { useDispatch,useSelector } from 'react-redux';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
  function getImagesFromMetadata(picsPerCol, metadata) {
     let images = metadata.map(
@@ -58,38 +59,47 @@ function arrangeForDisplay(plaques, picsPerCol) {
 }
 
 function PlaqueGallery(props) {
+  const dispatch = useDispatch();
+
   const plaques=arrangeForDisplay(getImagesFromMetadata(props.picsPerCol,props.plaques), props.picsPerCol);
 
   const searchResults=useSelector((state)=>state.searchResults);
+  const showHighlightPopup=useSelector((state)=>state.showHighlightPopup);
+  const highlightPlaque=useSelector((state)=>state.highlightPlaque);
 
-  let =false;
-
-  if (searchResults.length != 0) {
-    showHighlight=true;
-
+  let highlightImage=<></>;
+  if (highlightPlaque != null) {
+    const height=Math.ceil(window.innerHeight*0.8);
+    const width=Math.ceil(height/2550*834);
+    highlightImage=
+    (
+    <Box sx={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: width,
+      bgcolor: 'background.paper',
+      border: '2px solid #000',
+      boxShadow: 24,
+      p: 4,
+    }}>
+      <img src={highlightPlaque.file} height={height} />
+     </Box>
+    );
   }
 
   return (
     <div>
     <Modal
-      open={showPopup}
-      onClose={() => dispatch({ type: 'setPopup', payload: false })}
+      open={showHighlightPopup}
+      onClose={() => dispatch({ type: 'setHighlightPopup', payload: false })}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4,
-      }}>
-        <img></img>
-        </Box>
+      
+        {highlightImage}
+        
       </Modal>
    <div style={{
         display: "block",
