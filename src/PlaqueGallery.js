@@ -1,6 +1,8 @@
 
 import React from 'react';
 import Gallery from 'react-grid-gallery';
+import { useSelector } from 'react-redux';
+
 
  function getImagesFromMetadata(picsPerCol, metadata) {
     let images = metadata.map(
@@ -58,7 +60,37 @@ function arrangeForDisplay(plaques, picsPerCol) {
 function PlaqueGallery(props) {
   const plaques=arrangeForDisplay(getImagesFromMetadata(props.picsPerCol,props.plaques), props.picsPerCol);
 
+  const searchResults=useSelector((state)=>state.searchResults);
+
+  let =false;
+
+  if (searchResults.length != 0) {
+    showHighlight=true;
+
+  }
+
   return (
+    <div>
+    <Modal
+      open={showPopup}
+      onClose={() => dispatch({ type: 'setPopup', payload: false })}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+      }}>
+        <img></img>
+        </Box>
+      </Modal>
    <div style={{
         display: "block",
         minHeight: "1px",
@@ -69,6 +101,7 @@ function PlaqueGallery(props) {
 images={plaques}
 enableLightbox={false}
 enableImageSelection={false} rowHeight={props.rowHeight} margin={0} maxRows={2} />
+    </div>
     </div>);
 }
 

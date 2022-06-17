@@ -1,22 +1,24 @@
 
 import allPlaques from "./plaques.json"
 
-export function searchPlaques(searchTerm) {
-  let result=[];
-
-  if (searchTerm == null || searchTerm.length === 0) {
-    return result;
+export function searchPlaques(searchTerms) {
+  if (searchTerms == null || searchTerms.length === 0) {
+    return [];
   }
 
-  searchTerm=searchTerm.toLowerCase();
-  const idSearch=searchTerm.includes("_");
+  searchTerms = searchTerms.map(s => s.toLowerCase());
 
-  if (idSearch) {
-    result=allPlaques.filter(p=>p.id.toLowerCase()===searchTerm)
-  } else {
-    result=allPlaques.filter(p=>p.searchable && (p.benefiary.toLowerCase()===searchTerm || p.requester.toLowerCase()===searchTerm))
-  }
+  let idSearches = searchTerms.filter(s => s.includes("_"));
 
+  const idSearchResults = allPlaques.filter(
+      p => idSearches.includes(p.id.toLowerCase()));
+
+  const nameSearchResults = allPlaques.filter(
+      p => p.searchable &&
+        (searchTerms.includes(p.benefiary.toLowerCase()) || searchTerms.includes(p.requester.toLowerCase())));
+
+  const result=Array.from(
+    new Set(idSearchResults.concat(nameSearchResults)));
   return result;
 }
 

@@ -5,18 +5,19 @@ import searchPlaques from './searchLogic';
 const nextPage = createAction('nextPage')
 const search = createAction('search')
 const setPopup = createAction('setPopup')
-// const setExactSearch = createAction('setExactSearch')
 
 const initialState = { 
   gallery1Page: 0,
   gallery2Page: totalPages-1,
   currentGallery: 1,
-  screenshots: {2: false},
+  autoPlayCarousel: true,
   search: [],
   exactSearch: false,
   showSearchPopup: false,
   allPlaques:[],
   searchResults:[],
+  showHighlightPopup: false,
+  highlightPlaque: null,
 }
 
 export default function appReducer(state = initialState, action) {
@@ -51,16 +52,6 @@ export default function appReducer(state = initialState, action) {
       }
       
     }
-    // case 'setExactSearch': {
-    //   const exactSearch=action.payload;
-    //   const searchTerm=state.search;
-    //   const searchResults=searchPlaques(searchTerm, exactSearch);
-    //   return {
-    //     ...state,
-    //     exactSearch: action.payload,
-    //     searchResults: searchResults
-    //   }
-    // }
     case 'setPopup': {
       return {
         ...state,
@@ -68,6 +59,12 @@ export default function appReducer(state = initialState, action) {
 
       }
 
+    }
+    case 'setAllPlaques':{
+      return {
+        ...state,
+        allPlaques: action.payload
+      }
     }
     default:
       return state

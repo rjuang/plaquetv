@@ -60,6 +60,7 @@ function SearchBox() {
           {/* <Popup open={showPopup} onClose={()=> dispatch({ type: 'setPopup', payload: false })} modal> */}
           <Autocomplete
             multiple
+            
             handleHomeEndKeys={false}
             options={options}
             defaultValue={[]}
@@ -69,6 +70,7 @@ function SearchBox() {
                 variant="standard"
                 label="Search for Plaques"
                 placeholder="Name on plaque or plaque ID"
+                autoFocus={true}
               />
             )}
             onChange={(event, value)=>dispatch({ type: 'search', payload: value })}
@@ -77,7 +79,11 @@ function SearchBox() {
           <br />
           <Stack direction="row" justifyContent="space-evenly"
             alignItems="center" spacing={2}>
-            <Button variant="outlined" onClick={() => dispatch({ type: 'setPopup', payload: false })}>  Cancel</Button>
+            <Button variant="outlined" onClick={
+              () => {
+                dispatch({ type: 'setPopup', payload: false });
+                dispatch({type:'search', payload:[]});}
+              }>  Cancel</Button>
             <Button variant="contained" onClick={() => dispatch({ type: 'setPopup', payload: false })}>Search</Button>
           </Stack>
 
