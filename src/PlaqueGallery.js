@@ -66,32 +66,35 @@ function PlaqueGallery(props) {
   const searchResults=useSelector((state)=>state.searchResults);
   const showHighlightPopup=useSelector((state)=>state.showHighlightPopup);
   const highlightPlaque=useSelector((state)=>state.highlightPlaque);
+  const autoPlayCarousel=useSelector((state)=>state.autoPlayCarousel);
+  // let highlightImage=<></>;
+  // if (highlightPlaque != null) {
+  //   const height=Math.ceil(window.innerHeight*0.8);
+  //   const width=Math.ceil(height/2550*834);
+  //   highlightImage=
+  //   (
+  //   <Box sx={{
+  //     position: 'absolute',
+  //     top: '50%',
+  //     left: '50%',
+  //     transform: 'translate(-50%, -50%)',
+  //     width: width,
+  //     bgcolor: 'background.paper',
+  //     border: '2px solid #000',
+  //     boxShadow: 24,
+  //     p: 4,
+  //   }}>
+  //     <img src={highlightPlaque.file} height={height} />
+  //    </Box>
+  //   );
+  // }
 
-  let highlightImage=<></>;
-  if (highlightPlaque != null) {
-    const height=Math.ceil(window.innerHeight*0.8);
-    const width=Math.ceil(height/2550*834);
-    highlightImage=
-    (
-    <Box sx={{
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: width,
-      bgcolor: 'background.paper',
-      border: '2px solid #000',
-      boxShadow: 24,
-      p: 4,
-    }}>
-      <img src={highlightPlaque.file} height={height} />
-     </Box>
-    );
-  }
+  const height=Math.ceil(window.innerHeight*0.8);
+  const width=Math.ceil(height/2550*834);
 
   return (
     <div>
-    <Modal
+    {/* <Modal
       open={showHighlightPopup}
       onClose={() => dispatch({ type: 'setHighlightPopup', payload: false })}
       aria-labelledby="modal-modal-title"
@@ -100,7 +103,7 @@ function PlaqueGallery(props) {
       
         {highlightImage}
         
-      </Modal>
+      </Modal> */}
    <div style={{
         display: "block",
         minHeight: "1px",
@@ -110,6 +113,7 @@ function PlaqueGallery(props) {
         <Gallery
 images={plaques}
 enableLightbox={false}
+// onClickThumbnail
 enableImageSelection={false} rowHeight={props.rowHeight} margin={0} maxRows={2} />
     </div>
     </div>);
