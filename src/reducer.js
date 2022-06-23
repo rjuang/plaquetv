@@ -16,7 +16,6 @@ const initialState = {
   showSearchPopup: false,
   allPlaques:[],
   searchResults:[],
-  showHighlightPopup: false,
   highlightPlaque: null,
 }
 
@@ -57,7 +56,6 @@ export default function appReducer(state = initialState, action) {
         newState={
           ...newState,
           autoPlayCarousel: true,
-          showHighlightPopup: false,
           highlightPlaque: null
         }
       }
@@ -76,7 +74,6 @@ export default function appReducer(state = initialState, action) {
         newState={
           ...newState,
           autoPlayCarousel: false,
-          showHighlightPopup: true,
           highlightPlaque: state.searchResults[0]
         }
       }
@@ -91,6 +88,12 @@ export default function appReducer(state = initialState, action) {
         allPlaques: action.payload.allPlaques,
         totalPages: action.payload.totalPages,
         gallery2Page: action.payload.totalPages-1,
+      }
+    }
+    case 'closeHighlightPopup': {
+      return {
+        ...state,
+        highlightPlaque: null
       }
     }
     default:

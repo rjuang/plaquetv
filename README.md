@@ -3,11 +3,9 @@ Create-React-app
 react-grid-gallery
 react-responsive-carousel
 react-redux, @reduxjs/toolkit
-react-bootstrap
 pillow
-reactjs-popup
 react-use-keypress
-fuse.js
+material-ui (mui.com)
 
 # todo
 https://mui.com/material-ui/react-autocomplete/#multiple-values

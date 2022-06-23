@@ -2,8 +2,6 @@
 import React from 'react';
 import Gallery from 'react-grid-gallery';
 import { useDispatch,useSelector } from 'react-redux';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
 
  function getImagesFromMetadata(picsPerCol, metadata) {
     let images = metadata.map(
@@ -63,47 +61,15 @@ function PlaqueGallery(props) {
 
   const plaques=arrangeForDisplay(getImagesFromMetadata(props.picsPerCol,props.plaques), props.picsPerCol);
 
-  const searchResults=useSelector((state)=>state.searchResults);
-  const showHighlightPopup=useSelector((state)=>state.showHighlightPopup);
-  const highlightPlaque=useSelector((state)=>state.highlightPlaque);
-  const autoPlayCarousel=useSelector((state)=>state.autoPlayCarousel);
-  // let highlightImage=<></>;
-  // if (highlightPlaque != null) {
-  //   const height=Math.ceil(window.innerHeight*0.8);
-  //   const width=Math.ceil(height/2550*834);
-  //   highlightImage=
-  //   (
-  //   <Box sx={{
-  //     position: 'absolute',
-  //     top: '50%',
-  //     left: '50%',
-  //     transform: 'translate(-50%, -50%)',
-  //     width: width,
-  //     bgcolor: 'background.paper',
-  //     border: '2px solid #000',
-  //     boxShadow: 24,
-  //     p: 4,
-  //   }}>
-  //     <img src={highlightPlaque.file} height={height} />
-  //    </Box>
-  //   );
-  // }
+  let openLightBox=false;
+  let highlightIndex=0;
 
-  const height=Math.ceil(window.innerHeight*0.8);
-  const width=Math.ceil(height/2550*834);
+  if (plaques.length>0 && props.highlightIndex!==null) {
+    openLightBox=true;
+    highlightIndex=highlightIndex;
+  }
 
   return (
-    <div>
-    {/* <Modal
-      open={showHighlightPopup}
-      onClose={() => dispatch({ type: 'setHighlightPopup', payload: false })}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      
-        {highlightImage}
-        
-      </Modal> */}
    <div style={{
         display: "block",
         minHeight: "1px",
@@ -113,9 +79,11 @@ function PlaqueGallery(props) {
         <Gallery
 images={plaques}
 enableLightbox={false}
+// backdropClosesModal={true} showImageCount={false} preloadNextImage={false} enableKeyboardInput={false}
+// isOpen={openLightBox}
+// currentImage={highlightIndex}
 // onClickThumbnail
 enableImageSelection={false} rowHeight={props.rowHeight} margin={0} maxRows={2} />
-    </div>
     </div>);
 }
 
