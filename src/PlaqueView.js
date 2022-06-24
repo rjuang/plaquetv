@@ -1,27 +1,71 @@
 
 import React, { useState } from 'react';
 import Gallery from 'react-grid-gallery';
-import { useSelector } from 'react-redux'
-import { getImages, getImagesFromMetadata } from './plaques';
-import axios from 'axios';
-import PlaqueGallery from './PlaqueGallery';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
+import { getImages } from './plaques';
+
+import { useDispatch,useSelector } from 'react-redux';
+
+ function getImagesFromMetadata(picsPerCol, metadata) {
+    let images = metadata.map(
+      (e) => ({
+        src: e.file,
+        thumbnail: e.file,
+        thumbnailWidth: 834,
+        thumbnailHeight: 2550,
+      })
+    );
+  
+    let imagesPerPage = picsPerCol * 2;
+    for (var i = images.length; i < imagesPerPage; i++) {
+      images.push({
+        src: "background.png",
+        thumbnail: "background.png",
+        thumbnailWidth: 834,
+        thumbnailHeight: 2550,
+      });
+    }
+  
+    return images;
+  }
+
+function arrangeForDisplay(plaques, picsPerCol) {
+    let arr=Array(plaques.length);
+    let left=0, right=0, i=0;
+
+    if (picsPerCol%2===1) {
+        let center=(picsPerCol-1)/2;
+        arr[center]=plaques[0];
+        arr[center+picsPerCol]=plaques[1];
+
+        left=center-1;
+        right=center+1;
+        i=2;
+    } else {
+        right=picsPerCol/2;
+        left=right-1;
+    }
+
+    for (; i<plaques.length; i=i+4) {
+        arr[left]=plaques[i];
+        arr[left+picsPerCol]=plaques[i+1];
+        arr[right]=plaques[i+2]; 
+        arr[right+picsPerCol]=plaques[i+3];
+
+        left=left-1;
+        right=right+1;
+    }
+
+    return arr;
+}
 
 function PlaqueView(props) {
+  const dispatch = useDispatch();
+
   const searchResults = useSelector((state) => state.searchResults);
   const allPlaques = useSelector((state) => state.allPlaques);
   const gallery1Page = useSelector((state) => state.gallery1Page);
   const gallery2Page = useSelector((state) => state.gallery2Page);
   let page = 0;
-  const showHighlightPopup = useSelector((state) => state.showHighlightPopup);
-  const highlightPlaque = useSelector((state) => state.highlightPlaque);
-  const autoPlayCarousel = useSelector((state) => state.autoPlayCarousel);
-  const [toggler, setToggler] = useState(true);
 
   if (props.galleryNum == 1) {
     page = gallery1Page
@@ -39,59 +83,24 @@ function PlaqueView(props) {
     plaques = getImages(allPlaques, picsPerCol, page);
   }
 
-  let card = <></>;
-  if (highlightPlaque != null) {
-    const cardHeight=Math.ceil(window.innerHeight*0.7);
-    
-    card = <div>
-      {/* <Modal open={true}
-    aria-labelledby="modal-modal-title"
-    aria-describedby="modal-modal-description"> 
-    <Box sx={{
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    height: cardHeight,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 0,
-  }}>    */}
-  <Dialog
-        open={true}
-        // onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogContent>
-        <Card sx={{ maxHeight: cardHeight }}>
-        <CardMedia
-          component="img"
-          image={highlightPlaque.file}
-          sx={{ height: cardHeight }}
-        />
-      </Card>
-        </DialogContent>
-    
-      {/* </Box> 
-    </Modal> */}
-    </Dialog>
-    </div>
-      ;
-  }
+  const arrangedPlaques=arrangeForDisplay(getImagesFromMetadata(picsPerCol,plaques), picsPerCol);
 
+  const onClick=(index)=>
+    dispatch({
+    type:"clickHighlight", payload: arrangedPlaques[index]});
 
   return (
-    <div>
-      <div>
-      <PlaqueGallery
-        picsPerCol={picsPerCol}
-        rowHeight={rowHeight}
-        plaques={plaques}
-      />
-      </div>
-      {/* {card} */}
+   <div style={{
+        display: "block",
+        minHeight: "1px",
+        width: "100%",
+        border: "1px solid #ddd",
+        overflow: "auto"}}>
+        <Gallery
+images={arrangedPlaques}
+enableLightbox={false}
+enableImageSelection={false} rowHeight={rowHeight} margin={0} maxRows={2}
+onClickThumbnail={onClick} />
     </div>);
 }
 

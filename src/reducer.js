@@ -74,7 +74,7 @@ export default function appReducer(state = initialState, action) {
         newState={
           ...newState,
           autoPlayCarousel: false,
-          highlightPlaque: state.searchResults[0]
+          highlightPlaque: state.searchResults[0].file
         }
       }
       return newState;
@@ -94,6 +94,12 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         highlightPlaque: null
+      }
+    }
+    case 'clickHighlight': {
+      return {
+        ...state,
+        highlightPlaque: action.payload.src
       }
     }
     default:

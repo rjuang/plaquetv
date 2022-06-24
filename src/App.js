@@ -79,7 +79,7 @@ function App() {
         <Card sx={{ maxHeight: cardHeight }}>
         <CardMedia
           component="img"
-          image={highlightPlaque.file}
+          image={highlightPlaque}
           sx={{ height: cardHeight }}
         />
       </Card>
@@ -94,7 +94,7 @@ function App() {
   return (
     <div>
   
-  <Carousel autoPlay={autoPlayCarousel} infiniteLoop={true} interval={20000} stopOnHover={false} transitionTime={5000}
+  <Carousel autoPlay={autoPlayCarousel} infiniteLoop={true} interval={29000} stopOnHover={false} transitionTime={1000}
       // renderItem={customRenderItem}
       onChange={() => dispatch({ type: 'nextPage' })} showThumbs={false} showStatus={false} showIndicators={false}
        >
