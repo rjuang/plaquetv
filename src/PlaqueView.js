@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import Gallery from 'react-grid-gallery';
-import { getImages } from './plaques';
+import { getImages,getSearchView } from './plaques';
 
 import { useDispatch,useSelector } from 'react-redux';
 
@@ -62,9 +62,13 @@ function PlaqueView(props) {
   const dispatch = useDispatch();
 
   const searchResults = useSelector((state) => state.searchResults);
+  const highlightPlaque=useSelector((state) => state.highlightPlaque);
   const allPlaques = useSelector((state) => state.allPlaques);
   const gallery1Page = useSelector((state) => state.gallery1Page);
   const gallery2Page = useSelector((state) => state.gallery2Page);
+  const rowHeight = useSelector((state) => state.rowHeight);
+  const picsPerCol = useSelector((state) => state.picsPerCol);
+
   let page = 0;
 
   if (props.galleryNum == 1) {
@@ -73,12 +77,10 @@ function PlaqueView(props) {
     page = gallery2Page;
   }
 
-  let rowHeight = props.rowHeight
-  var picsPerCol = props.picsPerCol;
-
   let plaques = [];
-  if (searchResults.length != 0) {
-    plaques = getImages(allPlaques, picsPerCol, 0);
+
+  if (searchResults.length != 0 && highlightPlaque!=null) {
+    plaques = getSearchView(allPlaques, picsPerCol, searchResults[0]);
   } else {
     plaques = getImages(allPlaques, picsPerCol, page);
   }

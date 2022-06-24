@@ -23,27 +23,48 @@ import IconButton from '@mui/material/IconButton';
 
 function App() {
   const dispatch = useDispatch();
-  const autoPlayCarousel=useSelector((state)=>state.autoPlayCarousel);
   const search=useSelector((state)=>state.search);
   const searchResults=useSelector((state)=>state.searchResults);
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
 
-  let rowHeight=(window.innerHeight-2)*0.5
-  var scale = rowHeight / 2550;
-  var picWidth = 834 * scale;
-  var picsPerCol = Math.round(window.innerWidth / picWidth)+1;
-  const imagesPerPage=picsPerCol*2;
+  // let rowHeight=(window.innerHeight-2)*0.5
+  // var scale = rowHeight / 2550;
+  // var picWidth = 834 * scale;
+  // var picsPerCol = Math.round(window.innerWidth / picWidth)+1;
+  // const imagesPerPage=picsPerCol*2;
 
   useEffect(()=>{
-    const allPlaques=preprocessPlaques(picsPerCol);
-    const totalPages=Math.round(allPlaques.length/imagesPerPage);
-    dispatch({type:"setAllPlaques", payload: 
-    {allPlaques, totalPages
-  }});
+  //   const allPlaques=preprocessPlaques(picsPerCol);
+  //   const totalPages=Math.round(allPlaques.length/imagesPerPage);
+  //   dispatch({type:"setAllPlaques", payload: 
+  //   {allPlaques, totalPages
+  // }});
+
+  function handleResize() {
+    let rowHeight=(window.innerHeight-2)*0.5
+    var scale = rowHeight / 2550;
+    var picWidth = 834 * scale;
+    var picsPerCol = Math.round(window.innerWidth / picWidth)+1;
+
+  dispatch({
+    type: 'setWinSize', 
+    payload: {picsPerCol, rowHeight}
+  });
+
+    }
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+
   },[])
 
   let card = <></>;
+  let autoPlayCarousel=true;
   if (highlightPlaque != null) {
+    autoPlayCarousel=false;
+    
     const cardHeight=Math.ceil(window.innerHeight*0.7);
     
     const handleClose=()=>dispatch({type: "closeHighlightPopup"});
@@ -98,8 +119,8 @@ function App() {
       // renderItem={customRenderItem}
       onChange={() => dispatch({ type: 'nextPage' })} showThumbs={false} showStatus={false} showIndicators={false}
        >
-  <PlaqueView galleryNum={1} rowHeight={rowHeight} picsPerCol={picsPerCol}  />
-  <PlaqueView galleryNum={2} rowHeight={rowHeight} picsPerCol={picsPerCol} />
+  <PlaqueView galleryNum={1} />
+  <PlaqueView galleryNum={2} />
   
       </Carousel>
     <SearchBox/>

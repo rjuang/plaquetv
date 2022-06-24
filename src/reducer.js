@@ -1,22 +1,19 @@
 import { createAction } from '@reduxjs/toolkit'
 import searchPlaques from './searchLogic';
-
-const nextPage = createAction('nextPage')
-const search = createAction('search')
-const setPopup = createAction('setPopup')
+import { preprocessPlaques} from './plaques';
 
 const initialState = { 
   gallery1Page: 0,
   gallery2Page: 0,
   currentGallery: 1,
   totalPages: 0,
-  autoPlayCarousel: true,
   search: [],
-  exactSearch: false,
   showSearchPopup: false,
   allPlaques:[],
   searchResults:[],
   highlightPlaque: null,
+  picsPerCol:1,
+  rowHeight: 1,
 }
 
 export default function appReducer(state = initialState, action) {
@@ -100,6 +97,27 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         highlightPlaque: action.payload.src
+      }
+    }
+    case 'setWinSize': {
+      if (action.payload.picsPerCol === state.picsPerCol) {
+        return state;
+      }
+
+      const picsPerCol=action.payload.picsPerCol;
+      const imagesPerPage=picsPerCol*2;
+      const allPlaques=preprocessPlaques(picsPerCol);
+      const totalPages=Math.round(allPlaques.length/imagesPerPage);
+   
+      return {
+        ...state,
+        picsPerCol: picsPerCol,
+        rowHeight: action.payload.rowHeight,
+        allPlaques: allPlaques,
+        totalPages: totalPages,
+        gallery1Page: 0,
+        gallery2Page: totalPages-1,
+        currentGallery: 1,      
       }
     }
     default:
