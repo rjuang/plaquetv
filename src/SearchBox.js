@@ -21,7 +21,7 @@ function SearchBox() {
   const search = useSelector((state) => state.search);
   const exactSearch = useSelector((state) => state.exactSearch);
 
-  useKeypress(['Home', 'MediaPlayPause'], () => {
+  useKeypress(['Home', 'MediaPlayPause', 'AudioVolumeDown', 'AudioVolumeUp'], () => {
     if (showPopup === true) {
       dispatch({ type: 'setPopup', payload: false })
     } else {
