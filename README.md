@@ -14,7 +14,7 @@ https://mui.com/material-ui/react-autocomplete/#multiple-values
 https://plaquetv.z5.web.core.windows.net/
 
 # Development
-all the plaque images are removed from this repo, first need to copy these photos to the "images" folder.
+all the plaque images are removed from this repo, first need to copy these photos to the "public" folder.
 
 
 # deployment

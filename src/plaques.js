@@ -69,7 +69,8 @@ export function getSearchView(allPlaques, picsPerCol, searchResult) {
     return [];
   }
 
-  const page=(resultIndex-(resultIndex%picsPerCol))/picsPerCol;
+  const imagesPerPage=picsPerCol*2;
+  const page=(resultIndex-(resultIndex%imagesPerPage))/imagesPerPage;
 
   return getImages(allPlaques, picsPerCol, page);
 

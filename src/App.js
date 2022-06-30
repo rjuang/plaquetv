@@ -66,7 +66,8 @@ function App() {
     autoPlayCarousel=false;
     
     const cardHeight=Math.ceil(window.innerHeight*0.7);
-    
+    const imgHeight=cardHeight*0.9;
+
     const handleClose=()=>dispatch({type: "closeHighlightPopup"});
 
     card = <div>
@@ -101,7 +102,7 @@ function App() {
         <CardMedia
           component="img"
           image={highlightPlaque}
-          sx={{ height: cardHeight }}
+          sx={{ height: imgHeight }}
         />
       </Card>
         </DialogContent>
