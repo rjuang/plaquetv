@@ -1,6 +1,7 @@
 import { createAction } from '@reduxjs/toolkit'
 import searchPlaques from './searchLogic';
 import { preprocessPlaques} from './plaques';
+import {getSearchPage} from './plaques';
 
 const initialState = { 
   gallery1Page: 0,
@@ -14,29 +15,41 @@ const initialState = {
   highlightPlaque: null,
   picsPerCol:1,
   rowHeight: 1,
+  currentPage: 0,
 }
 
 export default function appReducer(state = initialState, action) {
   switch (action.type) {
-    case 'nextPage': {
-      let gallery1Page=state.gallery1Page;
-      let gallery2Page=state.gallery2Page;
-      let currentGallery=1;
+    case 'setCurrentPage': {
+    
+      let page=action.payload % state.totalPages;
 
-      if (state.currentGallery == 1) {
-        gallery2Page=(state.gallery2Page+2) % state.totalPages;
-        currentGallery=2;
-      } else {
-        gallery1Page=(state.gallery1Page+2) % state.totalPages;
-        currentGallery=1;
+      if (page===state.currentPage) {
+        return state;
       }
-
+      
       return {
         ...state,
-        gallery1Page: gallery1Page,
-        gallery2Page: gallery2Page,
-        currentGallery: currentGallery,
+        currentPage:page
       }
+      // let gallery1Page=state.gallery1Page;
+      // let gallery2Page=state.gallery2Page;
+      // let currentGallery=1;
+
+      // if (state.currentGallery == 1) {
+      //   gallery2Page=(state.gallery2Page+2) % state.totalPages;
+      //   currentGallery=2;
+      // } else {
+      //   gallery1Page=(state.gallery1Page+2) % state.totalPages;
+      //   currentGallery=1;
+      // }
+
+      // return {
+      //   ...state,
+      //   gallery1Page: gallery1Page,
+      //   gallery2Page: gallery2Page,
+      //   currentGallery: currentGallery,
+      // }
     }
     case 'search': {
       const searchTerm=action.payload;
@@ -68,10 +81,13 @@ export default function appReducer(state = initialState, action) {
       };
 
       if (action.payload===false && state.searchResults.length !=0) {
+        const page=getSearchPage(state.allPlaques, state.picsPerCol, state.searchResults[0]);
+
         newState={
           ...newState,
           autoPlayCarousel: false,
-          highlightPlaque: state.searchResults[0].file
+          highlightPlaque: state.searchResults[0].file,
+          currentPage:page
         }
       }
       return newState;

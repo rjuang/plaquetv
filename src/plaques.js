@@ -75,4 +75,19 @@ export function getSearchView(allPlaques, picsPerCol, searchResult) {
   return getImages(allPlaques, picsPerCol, page);
 
 }
+
+export function getSearchPage(allPlaques, picsPerCol, searchResult) {
+  const resultIndex=allPlaques.findIndex(
+    (p)=>p.id===searchResult.id
+  );
+
+  if (resultIndex===-1){
+    return -1;
+  }
+
+  const imagesPerPage=picsPerCol*2;
+  const page=(resultIndex-(resultIndex%imagesPerPage))/imagesPerPage;
+
+  return page;
+}
 export default getImages;

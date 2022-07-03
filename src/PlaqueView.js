@@ -69,13 +69,13 @@ function PlaqueView(props) {
   const rowHeight = useSelector((state) => state.rowHeight);
   const picsPerCol = useSelector((state) => state.picsPerCol);
 
-  let page = 0;
+  let page = props.page;
 
-  if (props.galleryNum == 1) {
-    page = gallery1Page
-  } else {
-    page = gallery2Page;
-  }
+  // if (props.galleryNum == 1) {
+  //   page = gallery1Page
+  // } else {
+  //   page = gallery2Page;
+  // }
 
   let plaques = [];
 
