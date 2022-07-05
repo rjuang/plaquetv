@@ -16,6 +16,7 @@ const initialState = {
   picsPerCol:1,
   rowHeight: 1,
   currentPage: 0,
+  highlightPlaqueHeight: 1,
 }
 
 export default function appReducer(state = initialState, action) {
@@ -134,6 +135,17 @@ export default function appReducer(state = initialState, action) {
         gallery1Page: 0,
         gallery2Page: totalPages-1,
         currentGallery: 1,      
+      }
+    }
+    case 'setHighlightPlaqueHeight': {
+      const highlightPlaqueHeight=action.payload-5;
+      if (highlightPlaqueHeight === state.highlightPlaqueHeight) {
+        return state;
+      }
+
+      return {
+        ...state,
+        highlightPlaqueHeight: highlightPlaqueHeight
       }
     }
     default:

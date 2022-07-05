@@ -11,7 +11,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-
+import PlaqueCard from "./PlaqueCard";
 
 function HighlightPlaque() {
   const dispatch = useDispatch();
@@ -21,9 +21,6 @@ function HighlightPlaque() {
   if (highlightPlaque == null) {
     return <></>;
   }
-
-  const cardHeight = rowHeight * 2;
-  const imgHeight = cardHeight * 0.82;
 
   const handleClose = () => dispatch({ type: "closeHighlightPopup" });
 
@@ -45,20 +42,9 @@ function HighlightPlaque() {
         </IconButton>
       </DialogTitle>
 
-      <DialogContent sx={{ 
-              overflow: "hidden",
-              height: "90vh"
-            }}>
-        <Card >
-          <CardMedia
-            component="img"
-            image={highlightPlaque}
-            sx={{ 
-              height: imgHeight 
-            }}
-          />
-        </Card>
-      </DialogContent>
+      
+        <PlaqueCard />
+      
     </Dialog>
   </div>
     ;
