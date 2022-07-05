@@ -11,7 +11,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-
+import PlaqueCard from "./PlaqueCard";
 
 function HighlightPlaque() {
   const dispatch = useDispatch();
@@ -46,15 +46,7 @@ function HighlightPlaque() {
       </DialogTitle>
 
       <DialogContent >
-        <Card >
-          <CardMedia
-            component="img"
-            image={highlightPlaque}
-            sx={{ 
-              height: imgHeight 
-            }}
-          />
-        </Card>
+        <PlaqueCard />
       </DialogContent>
     </Dialog>
   </div>
