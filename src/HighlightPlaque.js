@@ -45,7 +45,10 @@ function HighlightPlaque() {
         </IconButton>
       </DialogTitle>
 
-      <DialogContent >
+      <DialogContent sx={{ 
+              overflow: "hidden",
+              height: "90vh"
+            }}>
         <Card >
           <CardMedia
             component="img"
