@@ -45,7 +45,7 @@ function SearchBox() {
   const ids = allPlaques.map(p => p.id);
   const beneficiarys = allPlaques.map(p => p.benefiary);
   const requesters = allPlaques.map(p => p.requester);
-  const peoples = Array.from(new Set(beneficiarys, requesters));
+  const peoples = Array.from(new Set([...beneficiarys, ...requesters]));
   const options = ids.concat(peoples);
 
   return (
