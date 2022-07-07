@@ -81,8 +81,9 @@ function SearchBox() {
             alignItems="center" spacing={2}>
             <Button variant="outlined" onClick={
               () => {
+                dispatch({type:'search', payload:[]});
                 dispatch({ type: 'setPopup', payload: false });
-                dispatch({type:'search', payload:[]});}
+                }
               }>  Cancel</Button>
             <Button variant="contained" onClick={() => dispatch({ type: 'setPopup', payload: false })}>Search</Button>
           </Stack>

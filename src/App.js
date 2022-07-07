@@ -27,7 +27,7 @@ function App() {
       let rowHeight = (window.innerHeight - 2) * 0.5
       var scale = rowHeight / 2550;
       var picWidth = 834 * scale;
-      var picsPerCol = Math.round(window.innerWidth / picWidth) + 1;
+      var picsPerCol = Math.floor(window.innerWidth / picWidth) + 1;
 
       dispatch({
         type: 'setWinSize',
