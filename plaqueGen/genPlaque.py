@@ -1,7 +1,9 @@
+
 from PIL import Image, ImageFont, ImageDraw 
 import pandas as pd
 
 commonBeneFont = ImageFont.truetype('NotoSans-Regular.ttf', 90)
+commonSmallBeneFont = ImageFont.truetype('NotoSans-Regular.ttf', 60)
 commonSponsorFont = ImageFont.truetype('NotoSans-Regular.ttf', 70)
 tradChnBeneFont=ImageFont.truetype('NotoSansTC-Regular.otf', 95)
 tradChnSponsorFont=ImageFont.truetype('NotoSansTC-Regular.otf', 70)
@@ -19,14 +21,12 @@ index=74
 row=df.iloc[index]
     
 beneText=row["Beneficiary #1"]
-beneText=u"Nguyễn Thị Lan "
-
-# beneText='X'*14
-beneTextLang='vi'
-beneTextFont=commonBeneFont
+beneText=u'袁明記外公'
+beneText=u'袁明'
+beneTextLang='zh'
+beneTextFont=simpChnBeneFont
 # beneTextFont=englishBeneFont
 sponsorText=row["Sponsor"]
-sponsorText=u"Cảnh" 
 sponsorTextLang='vi'
 sponsorTextFont=commonBeneFont
 
@@ -41,7 +41,9 @@ templatePath="mmb_blank.png"
 template = Image.open(templatePath)
 canvas = ImageDraw.Draw(template)
 
-# canvas.multiline_text((380, 1300), beneText, (0, 0, 0), font=beneTextFont, anchor='mm')
+print(beneTextFont.getsize_multiline(beneText))
+p=1550-beneTextFont.getsize_multiline(beneText)[1]/2
+canvas.multiline_text((380, p), beneText, (0, 0, 0), font=beneTextFont, anchor='ml')
 
 # canvas.multiline_text((185, 1550), sponsorText, (0, 0, 0), font=sponsorTextFont, anchor='mm')
 
@@ -49,8 +51,9 @@ canvas = ImageDraw.Draw(template)
 text_layer = Image.new("RGBA", (2550, 834), (255, 255, 255, 0))
 textCanvas = ImageDraw.Draw(text_layer)
 
-p=1370-len(beneText)*15
-textCanvas.text((p, 350), beneText, (0, 0, 0, 255), font=beneTextFont, anchor='mm')
+print(beneTextFont.getsize(beneText))
+p=1550-beneTextFont.getsize(beneText)[0]/2
+# textCanvas.text((p, 350), beneText, (0, 0, 0, 255), font=beneTextFont, anchor='lm')
 
 if len(sponsorText)<=12:
   q=1550
@@ -61,7 +64,7 @@ elif len(sponsorText)<=23:
 else:
   q=950
 
-textCanvas.text((q, 565), sponsorText, (0, 0, 0, 255), font=sponsorTextFont, anchor='mm')
+# textCanvas.text((q, 565), sponsorText, (0, 0, 0, 255), font=sponsorTextFont, anchor='mm')
 
 rotated_text_layer = text_layer.rotate(270.0, expand=1)
 
