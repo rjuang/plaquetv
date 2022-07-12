@@ -12,23 +12,21 @@ simpChnSponsorFont=ImageFont.truetype('NotoSansSC-Regular.otf', 70)
 koreanBeneFont=ImageFont.truetype('NotoSansKR-Regular.otf', 105)
 koreanSponsorFont=ImageFont.truetype('NotoSansKR-Regular.otf', 80)
 
-df=pd.read_csv("20220528 - ChanQi DA Plaques - LOG.csv")
+df=pd.read_csv("test.csv")
 df=df[df[['Sponsor', 'Plaque #1', 'Beneficiary #1']].isna().any(axis=1)==False]
 df['Plaque#1 ID']=df.index*2+1
 df['Plaque#2 ID']=df.index*2+2
 
-index=74
+index=9
 row=df.iloc[index]
     
-beneText=row["Beneficiary #1"]
-beneText=u'袁明記外公'
-beneText=u'袁明'
+beneText=row["Beneficiary #2"]
 beneTextLang='zh'
 beneTextFont=simpChnBeneFont
 # beneTextFont=englishBeneFont
 sponsorText=row["Sponsor"]
-sponsorTextLang='vi'
-sponsorTextFont=commonBeneFont
+sponsorTextLang='zh'
+sponsorTextFont=simpChnSponsorFont
 
 if beneTextLang in ['zh', 'zh-Hant', 'ko']:
   beneText='\n'.join(beneText)
@@ -45,7 +43,7 @@ print(beneTextFont.getsize_multiline(beneText))
 p=1550-beneTextFont.getsize_multiline(beneText)[1]/2
 canvas.multiline_text((380, p), beneText, (0, 0, 0), font=beneTextFont, anchor='ml')
 
-# canvas.multiline_text((185, 1550), sponsorText, (0, 0, 0), font=sponsorTextFont, anchor='mm')
+canvas.multiline_text((185, 1550), sponsorText, (0, 0, 0), font=sponsorTextFont, anchor='mm')
 
 
 text_layer = Image.new("RGBA", (2550, 834), (255, 255, 255, 0))
