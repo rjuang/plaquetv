@@ -20,13 +20,13 @@ df['Plaque#2 ID']=df.index*2+2
 index=9
 row=df.iloc[index]
     
-beneText=row["Beneficiary #2"]
-beneTextLang='zh'
-beneTextFont=simpChnBeneFont
+beneText="Bambi"
+beneTextLang='en'
+beneTextFont=commonBeneFont
 # beneTextFont=englishBeneFont
-sponsorText=row["Sponsor"]
-sponsorTextLang='zh'
-sponsorTextFont=simpChnSponsorFont
+sponsorText="Sarah"
+sponsorTextLang='en'
+sponsorTextFont=commonSponsorFont
 
 if beneTextLang in ['zh', 'zh-Hant', 'ko']:
   beneText='\n'.join(beneText)
@@ -34,24 +34,26 @@ if beneTextLang in ['zh', 'zh-Hant', 'ko']:
 if sponsorTextLang in ['zh', 'zh-Hant', 'ko']:
   sponsorText='\n'.join(sponsorText)
 
-templatePath="mmb_blank.png"
+templatePath="rebirth_blank.png"
 
 template = Image.open(templatePath)
 canvas = ImageDraw.Draw(template)
 
 print(beneTextFont.getsize_multiline(beneText))
 p=1550-beneTextFont.getsize_multiline(beneText)[1]/2
-canvas.multiline_text((380, p), beneText, (0, 0, 0), font=beneTextFont, anchor='ml')
+# canvas.multiline_text((380, p), beneText, (0, 0, 0), font=beneTextFont, anchor='ml')
 
-canvas.multiline_text((185, 1550), sponsorText, (0, 0, 0), font=sponsorTextFont, anchor='mm')
+# canvas.multiline_text((185, 1550), sponsorText, (0, 0, 0), font=sponsorTextFont, anchor='mm')
 
 
 text_layer = Image.new("RGBA", (2550, 834), (255, 255, 255, 0))
 textCanvas = ImageDraw.Draw(text_layer)
 
+
+
 print(beneTextFont.getsize(beneText))
-p=1550-beneTextFont.getsize(beneText)[0]/2
-# textCanvas.text((p, 350), beneText, (0, 0, 0, 255), font=beneTextFont, anchor='lm')
+p=1533-beneTextFont.getsize(beneText)[0]/2
+textCanvas.text((p, 350), beneText, (0, 0, 0, 255), font=beneTextFont, anchor='lm')
 
 if len(sponsorText)<=12:
   q=1550
@@ -62,7 +64,7 @@ elif len(sponsorText)<=23:
 else:
   q=950
 
-# textCanvas.text((q, 565), sponsorText, (0, 0, 0, 255), font=sponsorTextFont, anchor='mm')
+textCanvas.text((q, 565), sponsorText, (0, 0, 0, 255), font=sponsorTextFont, anchor='mm')
 
 rotated_text_layer = text_layer.rotate(270.0, expand=1)
 
