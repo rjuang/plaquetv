@@ -16,13 +16,11 @@ idFont = ImageFont.truetype('NotoSans-Regular.ttf', 30)
 plaqueSpacing=825
 
 
-templatePath="mmb.png"
 templatePath="rebirth.png"
 temple="GF"
-temple="WMT"
+# temple="WMT"
 
 df=pd.read_json("plaques.json")
-# df=df[df['plaqueType']=='mmb'][df['plaqueLocation']==temple]
 df=df[df['plaqueType']=='rebirth'][df['plaqueLocation']==temple]
 
 
@@ -154,10 +152,10 @@ while page<math.ceil(total/4):
   template = Image.open(templatePath)
   canvas = ImageDraw.Draw(template)
 
-  canvas.text((345, 2390), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
-  canvas.text((1165, 2390), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
-  canvas.text((1990, 2390), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
-  canvas.text((2805, 2380), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
+  canvas.text((330, 2355), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
+  canvas.text((1145, 2355), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
+  canvas.text((1975, 2355), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
+  canvas.text((2805, 2355), "GuanYin DA", (0, 0, 0), font=idFont, anchor='mm')
     
   # bot mid (390, 2060),(1215, 2060)(2035, 2060),(2850, 2055) 
   # top mid (390, 960)(1215, 960)(2035, 960), (2850, 950)
@@ -168,35 +166,37 @@ while page<math.ceil(total/4):
     bText1=processChineseAndKoreanText(bText1)
 
     beneTextCursor=1510-bText1Font.getsize_multiline(bText1)[1]/2
-    canvas.multiline_text((390, beneTextCursor), bText1, (0, 0, 0), font=bText1Font, anchor='ml')
+    canvas.multiline_text((370, beneTextCursor), bText1, (0, 0, 0), font=bText1Font, anchor='ml')
 
 
   if sText1Lang in ['ko', 'zh']:
     sText1=processChineseAndKoreanText(sText1)
-    canvas.multiline_text((195, 1550), sText1, (0, 0, 0), font=sText1Font, anchor='mm')
+    sTextCursor=1670-sText1Font.getsize_multiline(sText1)[1]/2
+    canvas.multiline_text((175, sTextCursor), sText1, (0, 0, 0), font=sText1Font, anchor='mm')
 
 
   if bText2Lang in ['ko', 'zh']:
     bText2=processChineseAndKoreanText(bText2)
 
     beneTextCursor=1510-bText2Font.getsize_multiline(bText2)[1]/2
-    canvas.multiline_text((1215, beneTextCursor), bText2, (0, 0, 0), font=bText2Font, anchor='ml')
+    canvas.multiline_text((1185, beneTextCursor), bText2, (0, 0, 0), font=bText2Font, anchor='ml')
 
 
   if sText2Lang in ['ko', 'zh']:
     sText2=processChineseAndKoreanText(sText2)
-    canvas.multiline_text((1020, 1550), sText2, (0, 0, 0), font=sText2Font, anchor='mm')
+    canvas.multiline_text((990, 1550), sText2, (0, 0, 0), font=sText2Font, anchor='mm')
 
   if bText3Lang in ['ko', 'zh']:
     bText3=processChineseAndKoreanText(bText3)
 
     beneTextCursor=1510-bText3Font.getsize_multiline(bText3)[1]/2
-    canvas.multiline_text((2035, beneTextCursor), bText3, (0, 0, 0), font=bText3Font, anchor='ml')
+    canvas.multiline_text((2015, beneTextCursor), bText3, (0, 0, 0), font=bText3Font, anchor='ml')
 
 
   if sText3Lang in ['ko', 'zh']:
     sText3=processChineseAndKoreanText(sText3)
-    canvas.multiline_text((1845, 1550), sText3, (0, 0, 0), font=sText3Font, anchor='mm')
+    sTextCursor=1670-sText3Font.getsize_multiline(sText3)[1]/2
+    canvas.multiline_text((1820, sTextCursor), sText3, (0, 0, 0), font=sText3Font, anchor='mm')
 
 
   if bText4Lang in ['ko', 'zh']:
@@ -208,7 +208,8 @@ while page<math.ceil(total/4):
 
   if sText4Lang in ['ko', 'zh']:
     sText4=processChineseAndKoreanText(sText4)
-    canvas.multiline_text((2655, 1550), sText4, (0, 0, 0), font=sText4Font, anchor='mm')
+    sTextCursor=1670-sText4Font.getsize_multiline(sText4)[1]/2
+    canvas.multiline_text((2655, sTextCursor), sText4, (0, 0, 0), font=sText4Font, anchor='ml')
 
   text_layer = Image.new("RGBA", (2550, 3300), (255, 255, 255, 0))
   textCanvas = ImageDraw.Draw(text_layer)
@@ -219,7 +220,7 @@ while page<math.ceil(total/4):
 
   if bText1Lang in ['en', 'vi']:
     beneTextCursor=1535-bText1Font.getsize(bText1)[0]/2
-    textCanvas.text((beneTextCursor, 2795), bText1, (0, 0, 0, 255), font=bText1Font, anchor='lm')
+    textCanvas.text((beneTextCursor, 2815), bText1, (0, 0, 0, 255), font=bText1Font, anchor='lm')
 
   if len(sText1)<=12:
     sponsortextCursor=1550
@@ -231,12 +232,12 @@ while page<math.ceil(total/4):
     sponsortextCursor=950
 
   if sText1Lang in ['en', 'vi']:
-    textCanvas.text((sponsortextCursor, 3015), sText1, (0, 0, 0, 255), font=sText1Font, anchor='mm')
+    textCanvas.text((sponsortextCursor, 3035), sText1, (0, 0, 0, 255), font=sText1Font, anchor='mm')
 
   if bText2Lang in ['en', 'vi']:
     beneTextX=1535-bText2Font.getsize(bText2)[0]/2
-    beneTextY=2030-bText2Font.getsize(bText2)[1]/2
-    textCanvas.text((beneTextX, beneTextY), bText2, (0, 0, 0, 255), font=bText2Font, anchor='lm')
+    beneTextY=2055-bText2Font.getsize(bText2)[1]/2
+    textCanvas.text((beneTextX, beneTextY), bText2, (0, 0, 0, 255), font=bText2Font, anchor='ll')
 
 
   if len(sText2)<=12:
@@ -249,11 +250,11 @@ while page<math.ceil(total/4):
     sponsortextCursor=950
 
   if sText2Lang in ['en', 'vi']:
-    textCanvas.text((sponsortextCursor, 2195), sText2, (0, 0, 0, 255), font=sText2Font, anchor='mm')
+    textCanvas.text((sponsortextCursor, 2215), sText2, (0, 0, 0, 255), font=sText2Font, anchor='mm')
 
   if bText3Lang in ['en', 'vi']:
     beneTextX=1535-bText3Font.getsize(bText3)[0]/2
-    beneTextY=1210-bText3Font.getsize(bText3)[1]/2
+    beneTextY=1230-bText3Font.getsize(bText3)[1]/2
     textCanvas.text((beneTextX, beneTextY), bText3, (0, 0, 0, 255), font=bText3Font, anchor='ll')
 
   if len(sText3)<=12:
@@ -266,7 +267,7 @@ while page<math.ceil(total/4):
     sponsortextCursor=950
 
   if sText3Lang in ['en', 'vi']:
-    textCanvas.text((sponsortextCursor, 1370), sText3, (0, 0, 0, 255), font=sText3Font, anchor='mm')
+    textCanvas.text((sponsortextCursor, 1385), sText3, (0, 0, 0, 255), font=sText3Font, anchor='mm')
 
   if bText4Lang in ['en', 'vi']:
     beneTextCursor=1535-bText4Font.getsize(bText4)[0]/2
