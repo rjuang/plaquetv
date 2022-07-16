@@ -18,7 +18,7 @@ plaqueSpacing=825
 
 templatePath="rebirth.png"
 temple="GF"
-# temple="WMT"
+temple="WMT"
 
 df=pd.read_json("plaques.json")
 df=df[df['plaqueType']=='rebirth'][df['plaqueLocation']==temple]
@@ -172,7 +172,7 @@ while page<math.ceil(total/4):
   if sText1Lang in ['ko', 'zh']:
     sText1=processChineseAndKoreanText(sText1)
     sTextCursor=1670-sText1Font.getsize_multiline(sText1)[1]/2
-    canvas.multiline_text((175, sTextCursor), sText1, (0, 0, 0), font=sText1Font, anchor='mm')
+    canvas.multiline_text((175, sTextCursor), sText1, (0, 0, 0), font=sText1Font)
 
 
   if bText2Lang in ['ko', 'zh']:
@@ -184,7 +184,8 @@ while page<math.ceil(total/4):
 
   if sText2Lang in ['ko', 'zh']:
     sText2=processChineseAndKoreanText(sText2)
-    canvas.multiline_text((990, 1550), sText2, (0, 0, 0), font=sText2Font, anchor='mm')
+    sTextCursor=1670-sText2Font.getsize_multiline(sText2)[1]/2
+    canvas.multiline_text((990, sTextCursor), sText2, (0, 0, 0), font=sText2Font)
 
   if bText3Lang in ['ko', 'zh']:
     bText3=processChineseAndKoreanText(bText3)
@@ -196,7 +197,7 @@ while page<math.ceil(total/4):
   if sText3Lang in ['ko', 'zh']:
     sText3=processChineseAndKoreanText(sText3)
     sTextCursor=1670-sText3Font.getsize_multiline(sText3)[1]/2
-    canvas.multiline_text((1820, sTextCursor), sText3, (0, 0, 0), font=sText3Font, anchor='mm')
+    canvas.multiline_text((1820, sTextCursor), sText3, (0, 0, 0), font=sText3Font)
 
 
   if bText4Lang in ['ko', 'zh']:
@@ -209,7 +210,7 @@ while page<math.ceil(total/4):
   if sText4Lang in ['ko', 'zh']:
     sText4=processChineseAndKoreanText(sText4)
     sTextCursor=1670-sText4Font.getsize_multiline(sText4)[1]/2
-    canvas.multiline_text((2655, sTextCursor), sText4, (0, 0, 0), font=sText4Font, anchor='ml')
+    canvas.multiline_text((2655, sTextCursor), sText4, (0, 0, 0), font=sText4Font)
 
   text_layer = Image.new("RGBA", (2550, 3300), (255, 255, 255, 0))
   textCanvas = ImageDraw.Draw(text_layer)
@@ -222,68 +223,35 @@ while page<math.ceil(total/4):
     beneTextCursor=1535-bText1Font.getsize(bText1)[0]/2
     textCanvas.text((beneTextCursor, 2815), bText1, (0, 0, 0, 255), font=bText1Font, anchor='lm')
 
-  if len(sText1)<=12:
-    sponsortextCursor=1550
-  elif len(sText1)<=18:
-    sponsortextCursor=1350
-  elif len(sText1)<=23:
-    sponsortextCursor=1150
-  else:
-    sponsortextCursor=950
-
   if sText1Lang in ['en', 'vi']:
-    textCanvas.text((sponsortextCursor, 3035), sText1, (0, 0, 0, 255), font=sText1Font, anchor='mm')
+    sponsorTextCursor=1750-sText1Font.getsize(sText1)[0]/2
+    textCanvas.text((sponsorTextCursor, 3035), sText1, (0, 0, 0, 255), font=sText1Font)
 
   if bText2Lang in ['en', 'vi']:
     beneTextX=1535-bText2Font.getsize(bText2)[0]/2
     beneTextY=2055-bText2Font.getsize(bText2)[1]/2
     textCanvas.text((beneTextX, beneTextY), bText2, (0, 0, 0, 255), font=bText2Font, anchor='ll')
 
-
-  if len(sText2)<=12:
-    sponsortextCursor=1550
-  elif len(sText2)<=18:
-    sponsortextCursor=1350
-  elif len(sText2)<=23:
-    sponsortextCursor=1150
-  else:
-    sponsortextCursor=950
-
   if sText2Lang in ['en', 'vi']:
-    textCanvas.text((sponsortextCursor, 2215), sText2, (0, 0, 0, 255), font=sText2Font, anchor='mm')
+    sponsorTextCursor=1750-sText2Font.getsize(sText2)[0]/2
+    textCanvas.text((sponsorTextCursor, 2215), sText2, (0, 0, 0, 255), font=sText2Font)
 
   if bText3Lang in ['en', 'vi']:
     beneTextX=1535-bText3Font.getsize(bText3)[0]/2
     beneTextY=1230-bText3Font.getsize(bText3)[1]/2
     textCanvas.text((beneTextX, beneTextY), bText3, (0, 0, 0, 255), font=bText3Font, anchor='ll')
 
-  if len(sText3)<=12:
-    sponsortextCursor=1550
-  elif len(sText3)<=18:
-    sponsortextCursor=1350
-  elif len(sText3)<=23:
-    sponsortextCursor=1150
-  else:
-    sponsortextCursor=950
-
   if sText3Lang in ['en', 'vi']:
-    textCanvas.text((sponsortextCursor, 1385), sText3, (0, 0, 0, 255), font=sText3Font, anchor='mm')
+    sponsorTextCursor=1750-sText3Font.getsize(sText3)[0]/2
+    textCanvas.text((sponsorTextCursor, 1385), sText3, (0, 0, 0, 255), font=sText3Font)
 
   if bText4Lang in ['en', 'vi']:
     beneTextCursor=1535-bText4Font.getsize(bText4)[0]/2
     textCanvas.text((beneTextCursor, 340), bText4, (0, 0, 0, 255), font=bText4Font, anchor='lm')
 
-  if len(sText4)<=12:
-    sponsortextCursor=1550
-  elif len(sText4)<=18:
-    sponsortextCursor=1350
-  elif len(sText4)<=23:
-    sponsortextCursor=1150
-  else:
-    sponsortextCursor=950
-
   if sText4Lang in ['en', 'vi']:
-    textCanvas.text((sponsortextCursor, 555), sText4, (0, 0, 0, 255), font=sText4Font, anchor='mm')
+    sponsorTextCursor=1750-sText4Font.getsize(sText4)[0]/2
+    textCanvas.text((sponsorTextCursor, 555), sText4, (0, 0, 0, 255), font=sText4Font)
 
 
   rotated_text_layer = text_layer.rotate(270.0, expand=1)

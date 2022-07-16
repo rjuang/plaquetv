@@ -1,488 +1,32 @@
 [
     {
-        "beneText": "Vi M\u1ef9 Ph\u01b0\u1ee3ng ",
-        "beneTextLang": "vi",
-        "sponsorText": "Ven. XL",
+        "beneText": "Jesus Diaz Rivas",
+        "beneTextLang": "en",
+        "sponsorText": "Daniel",
         "sponsorTextLang": "en",
         "plaqueType": "rebirth",
         "plaqueLocation": "GF"
     },
     {
-        "beneText": "Vi Tuy\u1ebft Nga ",
-        "beneTextLang": "vi",
-        "sponsorText": "Ven. XL",
+        "beneText": "Federico Rivas Morales",
+        "beneTextLang": "en",
+        "sponsorText": "Daniel",
         "sponsorTextLang": "en",
         "plaqueType": "rebirth",
         "plaqueLocation": "GF"
     },
     {
-        "beneText": "Wontec Sunim",
+        "beneText": "Manic",
+        "beneTextLang": "en",
+        "sponsorText": "Kyle Shay Tam",
+        "sponsorTextLang": "en",
+        "plaqueType": "rebirth",
+        "plaqueLocation": "WMT"
+    },
+    {
+        "beneText": "Kyle Shay Tam",
         "beneTextLang": "en",
         "sponsorText": "",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Past Creditors",
-        "beneTextLang": "en",
-        "sponsorText": "Wontec Sunim",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Kidney Issue Creditor",
-        "beneTextLang": "en",
-        "sponsorText": "Tr\u01b0\u01a1ng Ng\u1ecdc",
-        "sponsorTextLang": "vi",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Tr\u01b0\u01a1ng Ng\u1ecdc",
-        "beneTextLang": "vi",
-        "sponsorText": "",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Tiana L",
-        "beneTextLang": "en",
-        "sponsorText": "Sarah",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Bambi",
-        "beneTextLang": "en",
-        "sponsorText": "Sarah",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Carolyn Sholley ",
-        "beneTextLang": "en",
-        "sponsorText": "Vickie Sprout",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Karen",
-        "beneTextLang": "en",
-        "sponsorText": "Vickie Sprout",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Manic Ghost",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XT",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Jackie",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XT",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Daniel Wu",
-        "beneTextLang": "en",
-        "sponsorText": "Yin Wu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Lixian Shao",
-        "beneTextLang": "en",
-        "sponsorText": "Yin Wu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Nathan's Backbone",
-        "beneTextLang": "en",
-        "sponsorText": "Frances Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Anh Tran",
-        "beneTextLang": "en",
-        "sponsorText": "Frances Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u0110\u1ed7 H\u1eefu \u0110\u1ea1t",
-        "beneTextLang": "vi",
-        "sponsorText": "Haussmann Vo",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Shinzo Abe",
-        "beneTextLang": "en",
-        "sponsorText": "Haussmann Vo",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "XM",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XM",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Allergic rhinitis",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XM",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Rick Roelen",
-        "beneTextLang": "en",
-        "sponsorText": "Peter Salvia",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Gloria Roelen",
-        "beneTextLang": "en",
-        "sponsorText": "Peter Salvia",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Cuc Le ",
-        "beneTextLang": "en",
-        "sponsorText": "Kenix Vo ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Cu Nguyen ",
-        "beneTextLang": "en",
-        "sponsorText": "Kenix Vo ",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Ronny Siu",
-        "beneTextLang": "en",
-        "sponsorText": "Jane Howe",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Doug Perovic",
-        "beneTextLang": "en",
-        "sponsorText": "Jane Howe",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u5b59\u6c38\u6e05",
-        "beneTextLang": "zh",
-        "sponsorText": "\u5b59\u6653\u6e05",
-        "sponsorTextLang": "zh",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u8463\u58eb\u6770",
-        "beneTextLang": "zh",
-        "sponsorText": "\u5b59\u6653\u6e05",
-        "sponsorTextLang": "zh",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Huixin Wang",
-        "beneTextLang": "en",
-        "sponsorText": "Apple",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Xiuying Xu",
-        "beneTextLang": "en",
-        "sponsorText": "Apple",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Huynh binh Minh",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XC",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Huynh Binh Loi",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XC",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Jared",
-        "beneTextLang": "en",
-        "sponsorText": "Cordellia ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Ven. XR",
-        "beneTextLang": "en",
-        "sponsorText": "Cordellia ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Narumi Medina",
-        "beneTextLang": "en",
-        "sponsorText": "Juan Medina",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Isabel Medina",
-        "beneTextLang": "en",
-        "sponsorText": "Juan Medina",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Juan Medina",
-        "beneTextLang": "en",
-        "sponsorText": "Jimmy Cho",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Dr. Ong",
-        "beneTextLang": "en",
-        "sponsorText": "Jimmy Cho",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u90d1\u4ea6\u6db5",
-        "beneTextLang": "zh",
-        "sponsorText": "\u5165\u5584",
-        "sponsorTextLang": "zh",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u6797\u4fdd\u8317",
-        "beneTextLang": "zh",
-        "sponsorText": "\u5165\u5584",
-        "sponsorTextLang": "zh",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "T\u1ea1 V\u0103n Ti\u1ec5ng ",
-        "beneTextLang": "vi",
-        "sponsorText": "Nguy\u00ean \u0110\u1ee9c ",
-        "sponsorTextLang": "vi",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Tr\u01b0\u01a1ng th\u1ecb L\u00e1ng",
-        "beneTextLang": "vi",
-        "sponsorText": "Nguy\u00ean \u0110\u1ee9c ",
-        "sponsorTextLang": "vi",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "L\u01b0\u01a1ng Ng\u1ecdc \u00c1nh",
-        "beneTextLang": "vi",
-        "sponsorText": "Di\u1ec7u Nga",
-        "sponsorTextLang": "vi",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Nguy\u1ec5n K\u1ef3 Trung",
-        "beneTextLang": "vi",
-        "sponsorText": "Di\u1ec7u Nga",
-        "sponsorTextLang": "vi",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Khai G Tran",
-        "beneTextLang": "en",
-        "sponsorText": "Kim D Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Anne M Phan",
-        "beneTextLang": "en",
-        "sponsorText": "Kim D Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Kim Tran",
-        "beneTextLang": "en",
-        "sponsorText": "Vanessa Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Quincy Tran",
-        "beneTextLang": "en",
-        "sponsorText": "Vanessa Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Vanessa Tran",
-        "beneTextLang": "en",
-        "sponsorText": "Kim Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Bretty Cao",
-        "beneTextLang": "en",
-        "sponsorText": "Kim Tran",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Jocelyn Ta",
-        "beneTextLang": "en",
-        "sponsorText": "Susan Lam",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Dylan Ta",
-        "beneTextLang": "en",
-        "sponsorText": "Susan Lam",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Yizhou Xu",
-        "beneTextLang": "en",
-        "sponsorText": "Ray",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Luoyi Ling",
-        "beneTextLang": "en",
-        "sponsorText": "Ray",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u5218\u7389\u8363",
-        "beneTextLang": "zh",
-        "sponsorText": "Chengcheng",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u5218\u7389\u7434",
-        "beneTextLang": "zh",
-        "sponsorText": "Chengcheng",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc1a1\uc8fc\uc6d0 ",
-        "beneTextLang": "ko",
-        "sponsorText": "Ven. XW",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "\uc6d4\uc2a4\ub2d8",
-        "beneTextLang": "ko",
-        "sponsorText": "Ven. XW",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Lutske Zuidema-Reitsma ",
-        "beneTextLang": "en",
-        "sponsorText": "Ebele Zuidema",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Jan Siebren Zuidema ",
-        "beneTextLang": "en",
-        "sponsorText": "Ebele Zuidema",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Tyler Chung",
-        "beneTextLang": "en",
-        "sponsorText": "Minh Ly",
         "sponsorTextLang": "en",
         "plaqueType": "mmb",
         "plaqueLocation": "WMT"
@@ -496,94 +40,6 @@
         "plaqueLocation": "WMT"
     },
     {
-        "beneText": "\ub178\uc655\uc6b0",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc601\uc131",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ub178\uc655\uc6b0",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc601\uc131",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc625\uc7a5\uc6d0",
-        "beneTextLang": "ko",
-        "sponsorText": "\ucd5c\uaddc\uc591",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc625\uc778\ud559",
-        "beneTextLang": "ko",
-        "sponsorText": "\ucd5c\uaddc\uc591",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ucd5c\uc11d\ud638",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\ubc94",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ud64d\uadc0\uadfc",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\ubc94",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc720\uc11c\uc815",
-        "beneTextLang": "ko",
-        "sponsorText": "\uad8c\ud76c\uc900",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc720\uc0c1\uc6b0",
-        "beneTextLang": "ko",
-        "sponsorText": "\uad8c\ud76c\uc900",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ucd5c\ud574\uace4",
-        "beneTextLang": "ko",
-        "sponsorText": "\ucd5c\uc219\ud76c",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc784\uc625\uc790",
-        "beneTextLang": "ko",
-        "sponsorText": "\ucd5c\uc219\ud76c",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc870\uc131\uc2dd",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc870\uc18c\uc601",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
         "beneText": "\uc870\uc131\uc2dd",
         "beneTextLang": "ko",
         "sponsorText": "\uc870\uc18c\uc601",
@@ -592,23 +48,95 @@
         "plaqueLocation": "WMT"
     },
     {
-        "beneText": "\u912d\u79c0\u5a1f",
+        "beneText": "\u9ec3\u7d20\u9999",
         "beneTextLang": "zh",
-        "sponsorText": "\u9ec3\u5927\u4fca",
+        "sponsorText": "\u9673\u745e\u73e0",
         "sponsorTextLang": "zh",
         "plaqueType": "mmb",
         "plaqueLocation": "GF"
     },
     {
-        "beneText": "\u9112\u7f8e\u84ee",
+        "beneText": "\u9ec3\u7d20\u6885",
         "beneTextLang": "zh",
-        "sponsorText": "\u9ec3\u5927\u4fca",
+        "sponsorText": "\u9673\u745e\u73e0",
         "sponsorTextLang": "zh",
+        "plaqueType": "mmb",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "\uc720\uc5f0\uc12d",
+        "beneTextLang": "ko",
+        "sponsorText": "\ud5c8\ud76c\uc601",
+        "sponsorTextLang": "ko",
+        "plaqueType": "mmb",
+        "plaqueLocation": "WMT"
+    },
+    {
+        "beneText": "Helen Tiet",
+        "beneTextLang": "en",
+        "sponsorText": "Billy Tiet",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "WMT"
+    },
+    {
+        "beneText": "Jayda Tiet",
+        "beneTextLang": "en",
+        "sponsorText": "Billy Tiet",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "WMT"
+    },
+    {
+        "beneText": "Jamie Le Tran",
+        "beneTextLang": "en",
+        "sponsorText": "Lien Le",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "Andrew Le Ba Quang Bao",
+        "beneTextLang": "en",
+        "sponsorText": "Lien Le",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "Irina",
+        "beneTextLang": "en",
+        "sponsorText": "Qun Cao",
+        "sponsorTextLang": "en",
         "plaqueType": "rebirth",
         "plaqueLocation": "GF"
     },
     {
-        "beneText": "Shannon McGough",
+        "beneText": "Kevin",
+        "beneTextLang": "en",
+        "sponsorText": "Qun Cao",
+        "sponsorTextLang": "en",
+        "plaqueType": "rebirth",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "YZL",
+        "beneTextLang": "en",
+        "sponsorText": "Chengdu Huang",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "Aiden",
+        "beneTextLang": "en",
+        "sponsorText": "Chengdu Huang",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "Rutong",
         "beneTextLang": "en",
         "sponsorText": "",
         "sponsorTextLang": "en",
@@ -616,175 +144,7 @@
         "plaqueLocation": "WMT"
     },
     {
-        "beneText": "Alki Steriopoulos",
-        "beneTextLang": "en",
-        "sponsorText": "Shannon McGough",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "David wu",
-        "beneTextLang": "en",
-        "sponsorText": "Kim Qu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "wei qu",
-        "beneTextLang": "en",
-        "sponsorText": "Kim Qu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Dr. Christopher J Miller ",
-        "beneTextLang": "en",
-        "sponsorText": "Mary-Jo Georgiev",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Dr. Christopher J Miller",
-        "beneTextLang": "en",
-        "sponsorText": "Mary-Jo Georgiev",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Andes Tran",
-        "beneTextLang": "en",
-        "sponsorText": "Le Du",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Ylem Tran",
-        "beneTextLang": "en",
-        "sponsorText": "Le Du",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Dr. Christopher Miller",
-        "beneTextLang": "en",
-        "sponsorText": "Jim Georgiev",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Frank Xu",
-        "beneTextLang": "en",
-        "sponsorText": "Jim Georgiev",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Carla",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XR",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Bac Loan",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XR",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Hong Thi Nguyen",
-        "beneTextLang": "en",
-        "sponsorText": "Duy Nguyen",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Kim Cuc Thi Nguyen",
-        "beneTextLang": "en",
-        "sponsorText": "Duy Nguyen",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "GuoChun Pang",
-        "beneTextLang": "en",
-        "sponsorText": "Plato Shi",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "FeiJin Shi (Eunice)",
-        "beneTextLang": "en",
-        "sponsorText": "Plato Shi",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc815\ub3c4\uacbd",
-        "beneTextLang": "ko",
-        "sponsorText": "Ven. XY",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc815\uc0c1\ubc94",
-        "beneTextLang": "ko",
-        "sponsorText": "Ven. XY",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Keen Do",
-        "beneTextLang": "en",
-        "sponsorText": "Nu Ngo",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Jewel Do",
-        "beneTextLang": "en",
-        "sponsorText": "Nu Ngo",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Enya Do",
-        "beneTextLang": "en",
-        "sponsorText": "Ty ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Van Do",
-        "beneTextLang": "en",
-        "sponsorText": "Ty ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Lily",
+        "beneText": "Rutong",
         "beneTextLang": "en",
         "sponsorText": "",
         "sponsorTextLang": "en",
@@ -792,483 +152,43 @@
         "plaqueLocation": "WMT"
     },
     {
-        "beneText": "Clark",
-        "beneTextLang": "en",
-        "sponsorText": "Lily",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Seong Rae Cho",
-        "beneTextLang": "en",
-        "sponsorText": "HyeYun Jeong",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Tae Nam Chang",
-        "beneTextLang": "en",
-        "sponsorText": "HyeYun Jeong",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\u5b8b\u5ef6\u5b81",
-        "beneTextLang": "zh",
-        "sponsorText": "RuYou",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "The mosquito I killed this morning",
-        "beneTextLang": "en",
-        "sponsorText": "RuYou",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Veronica",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XJ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Veronica",
-        "beneTextLang": "en",
-        "sponsorText": "Ven. XJ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "\uc785\ucc44",
-        "beneTextLang": "ko",
-        "sponsorText": "",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc804\ud76c\uc601(\uc785\uc219)",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\ucc44",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc804\ud48d\uc218",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc804\ud76c\uc601",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ubb38\ud310\ucca0",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc804\ud76c\uc601",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Ruth Meier",
-        "beneTextLang": "en",
-        "sponsorText": "Heinz Meier",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Marion Sky",
-        "beneTextLang": "en",
-        "sponsorText": "Heinz Meier",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ubb38\ucca0\ud638",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\uc7a5 \uc774\ubb34\uc131",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc2e0\uc2b9\ud638",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\uc7a5 \uc774\ubb34\uc131",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc774\uacbd\ud76c",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\uc694 \uc591\uc8fc\ubbf8",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc774\ubb34\uc131",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\uc694 \uc591\uc8fc\ubbf8",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Heinz Meier",
-        "beneTextLang": "en",
-        "sponsorText": "Ruth Meier",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Marianne Kaelin",
-        "beneTextLang": "en",
-        "sponsorText": "Ruth Meier",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ub178\ud76c\uc131",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc1a1\uc740\uc219",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc870\ub798\ud76c",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc1a1\uc740\uc219",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uae40\uc6a9\uade0",
-        "beneTextLang": "ko",
-        "sponsorText": "\uae40\uc724\uc815",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uae40\uc625\uc21c",
-        "beneTextLang": "ko",
-        "sponsorText": "\uae40\uc724\uc815",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc774\ub2e4\uc740",
-        "beneTextLang": "ko",
-        "sponsorText": "RuShu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uae40\ub300\uc131",
-        "beneTextLang": "ko",
-        "sponsorText": "RuShu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ubc15\uc6a9\uc21c",
-        "beneTextLang": "ko",
-        "sponsorText": "\ubc15\ub3d9\uc6b1",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ud55c\uc815\uc21c",
-        "beneTextLang": "ko",
-        "sponsorText": "\ubc15\ub3d9\uc6b1",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc720\ud68c\uadfc",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\ub4dd \uc720\ud604\uc8fc",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc18c\uc9c4\uc625",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\ub4dd \uc720\ud604\uc8fc",
-        "sponsorTextLang": "ko",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Du Nguyen ",
-        "beneTextLang": "en",
-        "sponsorText": "Thuy-Mai Nguyen ",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Bao Trieu",
-        "beneTextLang": "en",
-        "sponsorText": "Thuy-Mai Nguyen ",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Thuy-Mai Nguyen ",
-        "beneTextLang": "en",
-        "sponsorText": "Bao Trieu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Eric  Trieu",
-        "beneTextLang": "en",
-        "sponsorText": "Bao Trieu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "\uc784\ub4dd\ube48",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\uc7ac \ubc30\uc219\ud604",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc784\uc900\uc0c1",
-        "beneTextLang": "ko",
-        "sponsorText": "\uc785\uc7ac \ubc30\uc219\ud604",
-        "sponsorTextLang": "ko",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc774\uac15\uc0b0",
-        "beneTextLang": "ko",
-        "sponsorText": "Ven. XK",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc774\uac15\uc0b0",
-        "beneTextLang": "ko",
-        "sponsorText": "Ven. XK",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ucd5c\ubbfc\uacbd",
-        "beneTextLang": "ko",
-        "sponsorText": "",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\ucd5c\ubbfc\uacbd",
-        "beneTextLang": "ko",
-        "sponsorText": "",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc815\uc7ac\uc724",
-        "beneTextLang": "ko",
-        "sponsorText": "",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "\uc815\uc7ac\uc724",
-        "beneTextLang": "ko",
-        "sponsorText": "",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Sunior Toy",
-        "beneTextLang": "en",
-        "sponsorText": "Ngan Chau",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Chi Truong",
-        "beneTextLang": "en",
-        "sponsorText": "Ngan Chau",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Tam Truong",
-        "beneTextLang": "en",
-        "sponsorText": "Shawn Truong",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Ty Huynh",
-        "beneTextLang": "en",
-        "sponsorText": "Shawn Truong",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "MARIA DE LOS ANGELES QUINTAS PENA",
-        "beneTextLang": "en",
-        "sponsorText": "JESUS GOMOLLON",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "MARIA JUANA GUEVARA GONZALEZ",
-        "beneTextLang": "en",
-        "sponsorText": "JESUS GOMOLLON",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "H\u1ed3ng L\u00fd",
+        "beneText": "Ph\u1ea7n Th\u1ecb Trinh",
         "beneTextLang": "vi",
-        "sponsorText": "Nu To",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "D\u0169 T\u00f4",
-        "beneTextLang": "vi",
-        "sponsorText": "Nu To",
-        "sponsorTextLang": "en",
-        "plaqueType": "rebirth",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "\u0110\u1ed7 \u0110\u1ee9c Ho\u00e0ng Khanh",
-        "beneTextLang": "vi",
-        "sponsorText": "Ch\u01b0\u01a1ng \u0110\u1ed7",
+        "sponsorText": "C\u1ea3nh ",
         "sponsorTextLang": "vi",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Nguy\u1ec5n \u0110\u1ee9c Aaron",
-        "beneTextLang": "vi",
-        "sponsorText": "Ch\u01b0\u01a1ng \u0110\u1ed7",
-        "sponsorTextLang": "vi",
-        "plaqueType": "mmb",
-        "plaqueLocation": "GF"
-    },
-    {
-        "beneText": "Mei Ching",
-        "beneTextLang": "en",
-        "sponsorText": "Derek Chen",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Dan Ching",
-        "beneTextLang": "en",
-        "sponsorText": "Derek Chen",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Jack Chan",
-        "beneTextLang": "en",
-        "sponsorText": "Feibi Xu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Colleen Wong",
-        "beneTextLang": "en",
-        "sponsorText": "Feibi Xu",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Tr\u1ea7m Ng\u0169 H\u1ed3",
-        "beneTextLang": "vi",
-        "sponsorText": "Hu\u1ec7 Ch\u01a1n ",
-        "sponsorTextLang": "vi",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "Tr\u1ea7m Ki\u1ebfn Th\u00e0nh ",
-        "beneTextLang": "vi",
-        "sponsorText": "Hu\u1ec7 Ch\u01a1n ",
-        "sponsorTextLang": "vi",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "李東成",
-        "beneTextLang": "zh",
-        "sponsorText": "Kelly On",
-        "sponsorTextLang": "en",
-        "plaqueType": "mmb",
-        "plaqueLocation": "WMT"
-    },
-    {
-        "beneText": "형제 수자령",
-        "beneTextLang": "ko",
-        "sponsorText": "현법",
-        "sponsorTextLang": "ko",
         "plaqueType": "rebirth",
         "plaqueLocation": "WMT"
     },
     {
-        "beneText": "김정관",
-        "beneTextLang": "ko",
-        "sponsorText": "현법",
-        "sponsorTextLang": "ko",
+        "beneText": "Nguy\u1ec5n V\u0103n R\u1ef1a",
+        "beneTextLang": "vi",
+        "sponsorText": "C\u1ea3nh ",
+        "sponsorTextLang": "vi",
         "plaqueType": "rebirth",
+        "plaqueLocation": "WMT"
+    },
+    {
+        "beneText": "Bikhuni Dieu Phuoc",
+        "beneTextLang": "en",
+        "sponsorText": "Dung Nguyen",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "Thach thi Quynh",
+        "beneTextLang": "en",
+        "sponsorText": "Dung Nguyen",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
+        "plaqueLocation": "GF"
+    },
+    {
+        "beneText": "SeoJu Sunim (x2)",
+        "beneTextLang": "en",
+        "sponsorText": "",
+        "sponsorTextLang": "en",
+        "plaqueType": "mmb",
         "plaqueLocation": "WMT"
     }
 ]
