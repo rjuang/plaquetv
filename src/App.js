@@ -2,8 +2,7 @@
 import './App.css';
 import PlaqueView from './PlaqueView';
 import React, { useEffect } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import PlaqueCarousel from './Carousel';
 import { useDispatch } from 'react-redux'
 import { getImages, preprocessPlaques, getSearchPage } from './plaques';
 import Gallery from 'react-grid-gallery';
@@ -64,15 +63,15 @@ function App() {
 
   return (
     <div>
-
-      <Carousel autoPlay={autoPlayCarousel} infiniteLoop={true} interval={29000} stopOnHover={false} transitionTime={1000}
+        <PlaqueCarousel />
+      {/* <Carousel autoPlay={autoPlayCarousel} infiniteLoop={true} interval={29000} stopOnHover={false} transitionTime={1000}
         // renderItem={customRenderItem}
         // onChange={() => dispatch({ type: 'setCurrentPage', payload: currentPage+1 })} 
         showThumbs={false} showStatus={false} showIndicators={false}
         selectedItem={fixPage}
       >
         {pages}
-      </Carousel>
+      </Carousel> */}
       <SearchBox />
       <HighlightPlaque />
     </div>

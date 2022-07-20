@@ -64,18 +64,10 @@ function PlaqueView(props) {
   const searchResults = useSelector((state) => state.searchResults);
   const highlightPlaque=useSelector((state) => state.highlightPlaque);
   const allPlaques = useSelector((state) => state.allPlaques);
-  const gallery1Page = useSelector((state) => state.gallery1Page);
-  const gallery2Page = useSelector((state) => state.gallery2Page);
   const rowHeight = useSelector((state) => state.rowHeight);
   const picsPerCol = useSelector((state) => state.picsPerCol);
 
   let page = props.page;
-
-  // if (props.galleryNum == 1) {
-  //   page = gallery1Page
-  // } else {
-  //   page = gallery2Page;
-  // }
 
   let plaques = [];
 

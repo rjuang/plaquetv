@@ -4,9 +4,6 @@ import { preprocessPlaques} from './plaques';
 import {getSearchPage} from './plaques';
 
 const initialState = { 
-  gallery1Page: 0,
-  gallery2Page: 0,
-  currentGallery: 1,
   totalPages: 0,
   search: [],
   showSearchPopup: false,
@@ -33,24 +30,6 @@ export default function appReducer(state = initialState, action) {
         ...state,
         currentPage:page
       }
-      // let gallery1Page=state.gallery1Page;
-      // let gallery2Page=state.gallery2Page;
-      // let currentGallery=1;
-
-      // if (state.currentGallery == 1) {
-      //   gallery2Page=(state.gallery2Page+2) % state.totalPages;
-      //   currentGallery=2;
-      // } else {
-      //   gallery1Page=(state.gallery1Page+2) % state.totalPages;
-      //   currentGallery=1;
-      // }
-
-      // return {
-      //   ...state,
-      //   gallery1Page: gallery1Page,
-      //   gallery2Page: gallery2Page,
-      //   currentGallery: currentGallery,
-      // }
     }
     case 'search': {
       const searchTerm=action.payload;
@@ -66,7 +45,6 @@ export default function appReducer(state = initialState, action) {
       if (state.searchResults.length ===0) {
         newState={
           ...newState,
-          autoPlayCarousel: true,
           highlightPlaque: null
         }
       }
@@ -86,7 +64,6 @@ export default function appReducer(state = initialState, action) {
 
         newState={
           ...newState,
-          autoPlayCarousel: false,
           highlightPlaque: state.searchResults[0].file,
           currentPage:page
         }
@@ -101,7 +78,6 @@ export default function appReducer(state = initialState, action) {
         ...state,
         allPlaques: action.payload.allPlaques,
         totalPages: action.payload.totalPages,
-        gallery2Page: action.payload.totalPages-1,
       }
     }
     case 'closeHighlightPopup': {
@@ -132,9 +108,6 @@ export default function appReducer(state = initialState, action) {
         rowHeight: action.payload.rowHeight,
         allPlaques: allPlaques,
         totalPages: totalPages,
-        gallery1Page: 0,
-        gallery2Page: totalPages-1,
-        currentGallery: 1,      
       }
     }
     case 'setHighlightPlaqueHeight': {
