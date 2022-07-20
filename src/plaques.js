@@ -16,6 +16,7 @@ export function preprocessPlaques(picsPerCol) {
   const padItem={
     "id": "",
     "file": "background.png",
+    "previewFile":"background.png",
     "benefiary": "",
     "requester": "",
     "requestDate": "",
@@ -26,6 +27,7 @@ export function preprocessPlaques(picsPerCol) {
   const pad1=Array(pad1Len).fill({
     "id": "",
     "file": "mmb_blank.png",
+    "previewFile":"mmbPreview.png",
     "benefiary": "",
     "requester": "",
     "requestDate": "",
@@ -36,6 +38,7 @@ export function preprocessPlaques(picsPerCol) {
   const pad2=Array(pad2Len).fill({
     "id": "",
     "file": "rebirth_blank.png",
+    "previewFile": "rebirthPreview.png",
     "benefiary": "",
     "requester": "",
     "requestDate": "",

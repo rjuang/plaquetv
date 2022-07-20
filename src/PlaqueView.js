@@ -9,9 +9,9 @@ import { useDispatch,useSelector } from 'react-redux';
     let images = metadata.map(
       (e) => ({
         src: e.file,
-        thumbnail: e.file,
-        thumbnailWidth: 834,
-        thumbnailHeight: 2550,
+        thumbnail: e.previewFile,
+        thumbnailWidth: 120,
+        thumbnailHeight: 365,
       })
     );
   
