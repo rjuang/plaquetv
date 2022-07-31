@@ -69,13 +69,14 @@ function PlaqueView(props) {
 
   let page = props.page;
 
-  let plaques = [];
+  // let plaques = [];
+  const  plaques = getImages(allPlaques, picsPerCol, page);
 
-  if (searchResults.length != 0 && highlightPlaque!=null) {
-    plaques = getSearchView(allPlaques, picsPerCol, searchResults[0]);
-  } else {
-    plaques = getImages(allPlaques, picsPerCol, page);
-  }
+  // if (searchResults.length != 0 && highlightPlaque!=null) {
+  //   plaques = getSearchView(allPlaques, picsPerCol, searchResults[0]);
+  // } else {
+  //   plaques = getImages(allPlaques, picsPerCol, page);
+  // }
 
   const arrangedPlaques=arrangeForDisplay(getImagesFromMetadata(picsPerCol,plaques), picsPerCol);
 
