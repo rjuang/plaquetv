@@ -29,14 +29,7 @@ function PlaqueCard() {
     ref={elementRef} 
     >
         <Card>
-          <CardMedia
-            component="img"
-            image={highlightPlaque}
-            sx={{ 
-              height: highlightPlaqueHeight.toString()+"px",
-            }}
-            
-          />
+          <img src={highlightPlaque} style={{height:highlightPlaqueHeight.toString()+"px",}} />
         </Card>
         </DialogContent>
   );
