@@ -6,7 +6,6 @@ import {getSearchPage} from './plaques';
 const initialState = { 
   totalPages: 0,
   search: [],
-  showSearchPopup: false,
   allPlaques:[],
   searchResults:[],
   highlightPlaque: null,
@@ -42,36 +41,26 @@ export default function appReducer(state = initialState, action) {
         
       };
 
-      if (state.searchResults.length ===0) {
+      if (searchResults.length>0) {
+        const page=getSearchPage(state.allPlaques, state.picsPerCol, searchResults[0]);
+
         newState={
           ...newState,
-          highlightPlaque: null
+          highlightPlaque: searchResults[0].file,
+          currentPage:page
         }
+
       }
+
+      // if (state.searchResults.length ===0) {
+      //   newState={
+      //     ...newState,
+      //     highlightPlaque: null
+      //   }
+      // } 
 
       return newState;
       
-    }
-    case 'setPopup': {
-      let newState={
-        ...state,
-        showSearchPopup: action.payload
-
-      };
-
-      if (action.payload===false && state.searchResults.length !=0) {
-        const page=getSearchPage(state.allPlaques, state.picsPerCol, state.searchResults[0]);
-
-        newState={
-          ...newState,
-          highlightPlaque: state.searchResults[0].file,
-          currentPage:page
-        }
-      }
-      return newState;
-
-
-
     }
     case 'setAllPlaques':{
       return {
