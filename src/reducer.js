@@ -12,6 +12,7 @@ const initialState = {
   picsPerCol:1,
   rowHeight: 1,
   currentPage: 0,
+  searchResultPage:0,
   highlightPlaqueHeight: 1,
 }
 
@@ -37,8 +38,7 @@ export default function appReducer(state = initialState, action) {
       let newState={
         ...state,
         search: action.payload,
-        searchResults: searchResults,
-        
+        searchResults: searchResults,       
       };
 
       if (searchResults.length>0) {
@@ -47,7 +47,7 @@ export default function appReducer(state = initialState, action) {
         newState={
           ...newState,
           highlightPlaque: searchResults[0].file,
-          currentPage:page
+          searchResultPage:page
         }
 
       }
@@ -61,6 +61,16 @@ export default function appReducer(state = initialState, action) {
 
       return newState;
       
+    }
+    case 'typingSearchTerm':{
+      if (state.searchResultPage!=state.currentPage) {
+        return {
+          ...state,
+          searchResultPage: state.currentPage,
+        }
+      }
+      
+      return state;
     }
     case 'setAllPlaques':{
       return {

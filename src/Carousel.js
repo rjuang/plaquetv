@@ -6,8 +6,10 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 
 function PlaqueCarousel() {
+  const dispatch = useDispatch();
+
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
-  const fixPage = useSelector((state) => state.currentPage);
+  const searchResultPage = useSelector((state) => state.searchResultPage);
   const totalPages = useSelector((state) => state.totalPages);
 
   if (totalPages ===0) {
@@ -29,7 +31,8 @@ function PlaqueCarousel() {
   return (
       <Carousel autoPlay={autoPlayCarousel} infiniteLoop={true} interval={29000} stopOnHover={false} transitionTime={1000}
         showThumbs={false} showStatus={false} showIndicators={false}
-        selectedItem={fixPage}
+        selectedItem={searchResultPage}
+        onChange={(index)=>dispatch({type:"setCurrentPage", payload:index})}
       >
         {pages}
       </Carousel>

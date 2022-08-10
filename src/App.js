@@ -68,8 +68,6 @@ function App(props) {
   const search = useSelector((state) => state.search);
   const searchResults = useSelector((state) => state.searchResults);
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
-  const fixPage = useSelector((state) => state.currentPage);
-  // const allPlaques = useSelector((state) => state.allPlaques);
   const picsPerCol = useSelector((state) => state.picsPerCol);
   const totalPages = useSelector((state) => state.totalPages);
 
@@ -175,6 +173,7 @@ const searchBarWidth=Math.floor(paperWidth*0.75);
       
             )}
             onChange={(event, value)=>dispatch({ type: 'search', payload: [value,] })}
+            onInputChange={()=>dispatch({ type:'typingSearchTerm' })}
             value={search}
           />
           {/* </Search> */}
