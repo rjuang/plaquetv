@@ -4,34 +4,18 @@ import PlaqueView from './PlaqueView';
 import React, { useEffect, useRef } from 'react';
 import PlaqueCarousel from './Carousel';
 import { useDispatch } from 'react-redux'
-import { getImages, preprocessPlaques, getSearchPage } from './plaques';
-import Gallery from 'react-grid-gallery';
-import SearchBox from "./SearchBox";
 import { useSelector } from 'react-redux'
 import HighlightPlaque from './HighlightPlaque';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import AppBar from '@mui/material/AppBar';
 import Slide from '@mui/material/Slide';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { styled, alpha } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import allPlaques from "./plaques.json";
 import Paper from '@mui/material/Paper';
 
@@ -67,13 +51,11 @@ function HideOnScroll(props) {
 function App(props) {
   const dispatch = useDispatch();
   let search = useSelector((state) => state.search);
-  const searchResults = useSelector((state) => state.searchResults);
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
   const picsPerCol = useSelector((state) => state.picsPerCol);
   const totalPages = useSelector((state) => state.totalPages);
 
   const pageEndRef = useRef(null);
-  const scrollerRef=useRef(null);
 
   useEffect(() => {
 
@@ -101,10 +83,6 @@ function App(props) {
 
   }, [])
 
-  let autoPlayCarousel = true;
-  if (highlightPlaque != null) {
-    autoPlayCarousel = false;
-  }
 
   let pages = [];
   for (let i = 0; i < totalPages; i++) {
@@ -128,11 +106,9 @@ if (search.length>0) {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar>
+         <AppBar>
           <Toolbar>
-          {/* <Search> */}
-          <Paper
-      // component="form"
+         <Paper
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: paperWidth }}
     >
             <Autocomplete
@@ -159,32 +135,24 @@ if (search.length>0) {
 new Promise(
   (resolve)=>{
     pageEndRef.current?.scrollIntoView();
-    pageEndRef.current?.focus();
-    setTimeout(resolve, 1000);
+    // wait for the keyboard on tv to disappear
+    setTimeout(resolve, 2000);
   }).then(()=>{
     dispatch({type:"showSearchResults"});
   });
-
-                // dispatch({type:"showSearchResults"})
              }
               }
             }}
             value={search}
           />
-          {/* </Search> */}
           <IconButton aria-label="search" sx={{ p: '10px', m:'10px' }} >
   <SearchIcon onClick={()=>
-new Promise(
-  (resolve)=>{
-    pageEndRef.current?.scrollIntoView();
-    pageEndRef.current?.focus();
-    setTimeout(resolve, 1000);
-  }).then(()=>{
-    dispatch({type:"showSearchResults"});
-  })
-
-    // ()=>dispatch({type:"showSearchResults"})
-    } />
+      new Promise((resolve)=>{
+        pageEndRef.current?.scrollIntoView();
+        setTimeout(resolve, 1000);
+      }).then(()=>{
+        dispatch({type:"showSearchResults"});
+      })} />
 </IconButton>
 </Paper>
 <Typography
@@ -192,20 +160,16 @@ new Promise(
             component="div"
             sx={{ ml:20 }}
           >
-            v1.0
+            v1.1
           </Typography>
           </Toolbar>
-        </AppBar>
+        </AppBar> 
       </HideOnScroll>
       <Toolbar />
       <PlaqueCarousel />
-      {/* <SearchBox /> */}
       <HighlightPlaque />
       <div ref={pageEndRef} />
     </React.Fragment>
-    // <div>
- 
-    // </div>
   );
 }
 

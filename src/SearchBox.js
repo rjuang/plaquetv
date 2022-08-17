@@ -1,46 +1,50 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Popover, OverlayTrigger, CloseButton, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import useKeypress from 'react-use-keypress';
-import Button from '@mui/material/Button';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import allPlaques from "./plaques.json";
-import Stack from "@mui/material/Stack";
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Slide from '@mui/material/Slide';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import Paper from '@mui/material/Paper';
 
-function SearchBox() {
-  const dispatch = useDispatch();
+export function HideOnScroll(props) {
+  const { children, window } = props;
 
-  const showPopup = useSelector((state) => state.showSearchPopup);
-  const search = useSelector((state) => state.search);
-  const exactSearch = useSelector((state) => state.exactSearch);
-
-  useKeypress(['Home', 'MediaPlayPause', 'AudioVolumeDown', 'AudioVolumeUp', 'F8', 'F9'], () => {
-    if (showPopup === true) {
-      dispatch({ type: 'setPopup', payload: false })
-    } else {
-      dispatch({ type: 'setPopup', payload: true })
-    }
-
+  const highlightPlaque = useSelector((state) => state.highlightPlaque);
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    threshold: 1
   });
 
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
+  let showTopBar=!trigger;
+  if (highlightPlaque != null) {
+    showTopBar=false;
+  }
+
+  return (
+    <Slide appear={false} direction="down" 
+    // in={!trigger}
+    in={showTopBar} 
+    >
+      {children}
+    </Slide>
+  );
+}
+
+
+export function SearchBox() {
+  const dispatch = useDispatch();
+  let search = useSelector((state) => state.search);
 
   const ids = allPlaques.map(p => p.id);
   const beneficiarys = allPlaques.map(p => p.benefiary);
@@ -48,60 +52,60 @@ function SearchBox() {
   const peoples = Array.from(new Set([...beneficiarys, ...requesters]));
   const options = ids.concat(peoples);
 
+
+const paperWidth=Math.floor(window.innerWidth*0.6);
+const searchBarWidth=Math.floor(paperWidth*0.8);
+
+if (search.length>0) {
+  search=search[0]
+}
+
   return (
-    <div>
-      <Modal
-        open={showPopup}
-        onClose={() => dispatch({ type: 'setPopup', payload: false })}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          {/* <Popup open={showPopup} onClose={()=> dispatch({ type: 'setPopup', payload: false })} modal> */}
-          <Autocomplete
-            multiple
-            
+          <Paper
+      // component="form"
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: paperWidth }}
+    >
+            <Autocomplete
+            // multiple
+            autoHighlight          
             handleHomeEndKeys={false}
             options={options}
-            defaultValue={[]}
+            // defaultValue={[]}
             renderInput={(params) => (
               <TextField
                 {...params}
+                sx={{ ml: 2, flex: 1,  width: searchBarWidth }}
                 variant="standard"
-                label="Search for Plaques"
+                // label="Search for Plaques"
                 placeholder="Name on plaque or plaque ID"
-                autoFocus={true}
               />
             )}
-            onChange={(event, value)=>dispatch({ type: 'search', payload: value })}
+            onChange={(event, value)=>dispatch({ type: 'search', payload: [value,] })}
+            onFocus={()=>dispatch({type:"startTyping"})}
+            onBlur={()=>dispatch({type:"stopTyping"})}
+            onKeyDown={(event)=>{
+              if (event.key === 'Enter') {
+             if (search.length>0) {
+new Promise(
+  (resolve)=>{
+    // wait for the keyboard on tv to disappear
+    setTimeout(resolve, 2000);
+  }).then(()=>{
+    dispatch({type:"showSearchResults"});
+  });
+
+                // dispatch({type:"showSearchResults"})
+             }
+              }
+            }}
             value={search}
           />
-          <br />
-          <Stack direction="row" justifyContent="space-evenly"
-            alignItems="center" spacing={2}>
-            <Button variant="outlined" onClick={
-              () => {
-                dispatch({type:'search', payload:[]});
-                dispatch({ type: 'setPopup', payload: false });
-                }
-              }>  Cancel</Button>
-            <Button variant="contained" onClick={() => dispatch({ type: 'setPopup', payload: false })}>Search</Button>
-          </Stack>
-
-
-
-          {/* <Form>
- <Form.Check 
-    type="switch"
-    label="Search Plaque ID"
-    onChange={(event)=> dispatch({type: 'setExactSearch', payload: event.target.checked})} checked={exactSearch}
-  />
-  <Form.Control size="lg" type="text" placeholder="Name on plaque or plaque ID" onChange={(event)=> dispatch({ type: 'search', payload: event.target.value })} value={search} />
-  </Form>  */}
-
-        </Box>
-      </Modal>
-    </div>
+          {/* </Search> */}
+          <IconButton aria-label="search" sx={{ p: '10px', m:'10px' }} >
+  <SearchIcon onClick={    ()=>dispatch({type:"showSearchResults"})
+    } />
+</IconButton>
+</Paper>
   )
 }
 
