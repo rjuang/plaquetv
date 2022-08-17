@@ -14,6 +14,7 @@ const initialState = {
   currentPage: 0,
   searchResultPage:0,
   highlightPlaqueHeight: 1,
+  isTyping: false
 }
 
 export default function appReducer(state = initialState, action) {
@@ -31,48 +32,51 @@ export default function appReducer(state = initialState, action) {
         currentPage:page
       }
     }
-    case 'search': {
-      const searchTerm=action.payload;
-      const searchResults=searchPlaques(searchTerm);
+    case 'showSearchResults': {
+      const searchTerm=state.search;
+      const searchResults=state.searchResults;
 
-      let newState={
-        ...state,
-        search: action.payload,
-        searchResults: searchResults,       
-      };
+      if (searchTerm.length==0||searchResults.length==0) {
+        return state;
+      }
 
-      if (searchResults.length>0) {
         const page=getSearchPage(state.allPlaques, state.picsPerCol, searchResults[0]);
 
-        newState={
-          ...newState,
+    return {
+          ...state,
           highlightPlaque: searchResults[0].file,
           searchResultPage:page
         }
 
-      }
-
-      // if (state.searchResults.length ===0) {
-      //   newState={
-      //     ...newState,
-      //     highlightPlaque: null
-      //   }
-      // } 
-
-      return newState;
-      
+    
     }
-    case 'typingSearchTerm':{
+    case 'search':{
+      const searchTerm=action.payload;
+
+      let newState={
+        ...state,
+        search:searchTerm
+      };
+
       if (state.searchResultPage!=state.currentPage) {
-        return {
-          ...state,
+        newState={
+          ...newState,
           searchResultPage: state.currentPage,
         }
       }
-      
-      return state;
+
+      if (searchTerm.length!=0) {
+      const searchResults=searchPlaques(searchTerm);
+
+      newState={
+        ...newState,
+        searchResults: searchResults,       
+      };
     }
-    case 'setAllPlaques':{
+
+      return newState;
+    }
+        case 'setAllPlaques':{
       return {
         ...state,
         allPlaques: action.payload.allPlaques,
@@ -96,6 +100,10 @@ export default function appReducer(state = initialState, action) {
         return state;
       }
 
+      if (state.isTyping) {
+        return state;
+      }
+
       const picsPerCol=action.payload.picsPerCol;
       const imagesPerPage=picsPerCol*2;
       const allPlaques=preprocessPlaques(picsPerCol);
@@ -115,9 +123,34 @@ export default function appReducer(state = initialState, action) {
         return state;
       }
 
+      // if (state.isTyping) {
+      //   return state;
+      // }
+
+
       return {
         ...state,
         highlightPlaqueHeight: highlightPlaqueHeight
+      }
+    }
+    case 'startTyping':{
+      if (state.isTyping) {
+        return state;
+      }
+
+      return {
+        ...state,
+        isTyping: true
+      }
+    }
+    case 'stopTyping':{
+      if (!state.isTyping) {
+        return state;
+      }
+
+      return {
+        ...state,
+        isTyping: false
       }
     }
     default:

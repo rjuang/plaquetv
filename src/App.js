@@ -1,7 +1,7 @@
 
 import './App.css';
 import PlaqueView from './PlaqueView';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PlaqueCarousel from './Carousel';
 import { useDispatch } from 'react-redux'
 import { getImages, preprocessPlaques, getSearchPage } from './plaques';
@@ -37,6 +37,8 @@ import Paper from '@mui/material/Paper';
 
 function HideOnScroll(props) {
   const { children, window } = props;
+
+  const highlightPlaque = useSelector((state) => state.highlightPlaque);
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
@@ -45,33 +47,36 @@ function HideOnScroll(props) {
     threshold: 1
   });
 
+  let showTopBar=!trigger;
+  if (highlightPlaque != null) {
+    showTopBar=false;
+  }
+
   return (
-    <Slide appear={false} direction="down" in={!trigger}>
+    <Slide appear={false} direction="down" 
+    // in={!trigger}
+    in={showTopBar} 
+    >
       {children}
     </Slide>
   );
 }
 
-HideOnScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
-
 
 
 function App(props) {
   const dispatch = useDispatch();
-  const search = useSelector((state) => state.search);
+  let search = useSelector((state) => state.search);
   const searchResults = useSelector((state) => state.searchResults);
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
   const picsPerCol = useSelector((state) => state.picsPerCol);
   const totalPages = useSelector((state) => state.totalPages);
 
+  const pageEndRef = useRef(null);
+  const scrollerRef=useRef(null);
+
   useEffect(() => {
+
 
     function handleResize() {
       let rowHeight = (window.innerHeight - 2) * 0.5
@@ -88,6 +93,9 @@ function App(props) {
     window.addEventListener("resize", handleResize);
     // Call handler right away so state gets updated with initial window size
     handleResize();
+
+    setTimeout(()=>pageEndRef.current?.scrollIntoView({behavior:"smooth"}), 2000);
+
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
 
@@ -96,14 +104,6 @@ function App(props) {
   let autoPlayCarousel = true;
   if (highlightPlaque != null) {
     autoPlayCarousel = false;
-
-  }
-
-  let optionalProps = {};
-  if (searchResults.length != 0 && highlightPlaque != null) {
-    optionalProps = {
-      selectedItem: getSearchPage(allPlaques, picsPerCol, highlightPlaque)
-    };
   }
 
   let pages = [];
@@ -116,27 +116,14 @@ function App(props) {
   const requesters = allPlaques.map(p => p.requester);
   const peoples = Array.from(new Set([...beneficiarys, ...requesters]));
   const options = ids.concat(peoples);
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  // marginTop: 2,
-  width: '100%',
-  // width: '500px',
-  // [theme.breakpoints.up('sm')]: {
-  //   marginLeft: theme.spacing(3),
-  //   width: 'auto',
-  // },
-}));
+
 
 const paperWidth=Math.floor(window.innerWidth*0.6);
-const searchBarWidth=Math.floor(paperWidth*0.75);
+const searchBarWidth=Math.floor(paperWidth*0.8);
 
+if (search.length>0) {
+  search=search[0]
+}
   return (
     <React.Fragment>
       <CssBaseline />
@@ -145,12 +132,12 @@ const searchBarWidth=Math.floor(paperWidth*0.75);
           <Toolbar>
           {/* <Search> */}
           <Paper
-      component="form"
+      // component="form"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: paperWidth }}
     >
             <Autocomplete
             // multiple
-            
+            autoHighlight          
             handleHomeEndKeys={false}
             options={options}
             // defaultValue={[]}
@@ -161,27 +148,52 @@ const searchBarWidth=Math.floor(paperWidth*0.75);
                 variant="standard"
                 // label="Search for Plaques"
                 placeholder="Name on plaque or plaque ID"
-                autoFocus={true}
               />
-            //   <InputBase
-            //   {...params}
-            //   sx={{ ml: 1, flex: 1 }}
-            //   placeholder="Search Google Maps"
-            //   // inputProps={{ 'aria-label': 'search google maps' }}
-            //   autoFocus={true}
-            // />
-      
             )}
             onChange={(event, value)=>dispatch({ type: 'search', payload: [value,] })}
-            onInputChange={()=>dispatch({ type:'typingSearchTerm' })}
+            onFocus={()=>dispatch({type:"startTyping"})}
+            onBlur={()=>dispatch({type:"stopTyping"})}
+            onKeyDown={(event)=>{
+              if (event.key === 'Enter') {
+             if (search.length>0) {
+new Promise(
+  (resolve)=>{
+    pageEndRef.current?.scrollIntoView();
+    pageEndRef.current?.focus();
+    setTimeout(resolve, 1000);
+  }).then(()=>{
+    dispatch({type:"showSearchResults"});
+  });
+
+                // dispatch({type:"showSearchResults"})
+             }
+              }
+            }}
             value={search}
           />
           {/* </Search> */}
-          <IconButton aria-label="search" sx={{ p: '10px', m:'10px' }} onClick={() => dispatch({ type: 'setPopup', payload: false })}>
-  <SearchIcon />
+          <IconButton aria-label="search" sx={{ p: '10px', m:'10px' }} >
+  <SearchIcon onClick={()=>
+new Promise(
+  (resolve)=>{
+    pageEndRef.current?.scrollIntoView();
+    pageEndRef.current?.focus();
+    setTimeout(resolve, 1000);
+  }).then(()=>{
+    dispatch({type:"showSearchResults"});
+  })
+
+    // ()=>dispatch({type:"showSearchResults"})
+    } />
 </IconButton>
 </Paper>
-
+<Typography
+            variant="h5"
+            component="div"
+            sx={{ ml:20 }}
+          >
+            v1.0
+          </Typography>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -189,6 +201,7 @@ const searchBarWidth=Math.floor(paperWidth*0.75);
       <PlaqueCarousel />
       {/* <SearchBox /> */}
       <HighlightPlaque />
+      <div ref={pageEndRef} />
     </React.Fragment>
     // <div>
  
