@@ -11,13 +11,14 @@ function PlaqueCarousel() {
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
   const searchResultPage = useSelector((state) => state.searchResultPage);
   const totalPages = useSelector((state) => state.totalPages);
+  const isTyping=useSelector((state)=>state.isTyping);
 
   if (totalPages ===0) {
     return <></>
   }
 
   let autoPlayCarousel = true;
-  if (highlightPlaque != null) {
+  if (highlightPlaque != null || isTyping) {
     autoPlayCarousel = false;
 
   }

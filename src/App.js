@@ -56,6 +56,11 @@ function App(props) {
   const totalPages = useSelector((state) => state.totalPages);
 
   const pageEndRef = useRef(null);
+  const searchInputRef=useRef(null);
+
+  const testHighlight={
+    src: allPlaques[0].file
+  };
 
   useEffect(() => {
 
@@ -72,14 +77,27 @@ function App(props) {
       });
 
     }
-    window.addEventListener("resize", handleResize);
+    // window.addEventListener("resize", handleResize);
     // Call handler right away so state gets updated with initial window size
-    handleResize();
-
-    setTimeout(()=>pageEndRef.current?.scrollIntoView({behavior:"smooth"}), 2000);
+    
+    new Promise((resolve)=>{
+      handleResize();
+      setTimeout(resolve, 500);
+    }).then(()=>new Promise((resolve)=>{
+      pageEndRef.current?.scrollIntoView();
+      setTimeout(resolve, 4500);
+    })).then(()=>new Promise((resolve)=>{
+      handleResize();
+      dispatch({type:'clickHighlight', payload:testHighlight});
+      setTimeout(resolve, 3000);
+      
+    })).then(()=>{
+      dispatch({type:"closeHighlightPopup"});
+      dispatch({type:"initDone"});
+    }); 
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
+    // return () => window.removeEventListener("resize", handleResize);
 
   }, [])
 
@@ -113,6 +131,7 @@ if (search.length>0) {
     >
             <Autocomplete
             // multiple
+            ref={searchInputRef}
             autoHighlight          
             handleHomeEndKeys={false}
             options={options}
@@ -134,10 +153,12 @@ if (search.length>0) {
              if (search.length>0) {
 new Promise(
   (resolve)=>{
-    pageEndRef.current?.scrollIntoView();
+    searchInputRef.current?.blur();
+    pageEndRef.current?.scrollIntoView({behavior: "smooth", block: "end"});
     // wait for the keyboard on tv to disappear
-    setTimeout(resolve, 2000);
+    setTimeout(resolve, 3000);
   }).then(()=>{
+    pageEndRef.current?.focus();
     dispatch({type:"showSearchResults"});
   });
              }
@@ -160,7 +181,7 @@ new Promise(
             component="div"
             sx={{ ml:20 }}
           >
-            v1.1
+            v1.5
           </Typography>
           </Toolbar>
         </AppBar> 

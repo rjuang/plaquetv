@@ -14,7 +14,8 @@ const initialState = {
   currentPage: 0,
   searchResultPage:0,
   highlightPlaqueHeight: 1,
-  isTyping: false
+  isTyping: false,
+  initDone: false,
 }
 
 export default function appReducer(state = initialState, action) {
@@ -96,13 +97,17 @@ export default function appReducer(state = initialState, action) {
       }
     }
     case 'setWinSize': {
+      if (state.initDone) {
+        return state;
+      }
+
       if (action.payload.picsPerCol === state.picsPerCol) {
         return state;
       }
 
-      if (state.isTyping) {
-        return state;
-      }
+      // if (state.isTyping) {
+      //   return state;
+      // }
 
       const picsPerCol=action.payload.picsPerCol;
       const imagesPerPage=picsPerCol*2;
@@ -118,6 +123,10 @@ export default function appReducer(state = initialState, action) {
       }
     }
     case 'setHighlightPlaqueHeight': {
+      if (state.initDone) {
+        return state;
+      }
+
       const highlightPlaqueHeight=action.payload-5;
       if (highlightPlaqueHeight === state.highlightPlaqueHeight) {
         return state;
@@ -151,6 +160,12 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         isTyping: false
+      }
+    }
+    case 'initDone': {
+      return {
+        ...state,
+        initDone: true
       }
     }
     default:
