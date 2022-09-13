@@ -1,7 +1,7 @@
 
 import './App.css';
 import PlaqueView from './PlaqueView';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState  } from 'react';
 import PlaqueCarousel from './Carousel';
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
@@ -17,7 +17,9 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import allPlaques from "./plaques.json";
-import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -48,7 +50,19 @@ function HideOnScroll(props) {
 
 
 
+
 function App(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleMouseMove = (event) => {
+    // console.log(event.clientX, event.clientY);
+    if (event.clientY < 15 && show==false) {
+      setShow(true);    
+    }
+  };
+
   const dispatch = useDispatch();
   let search = useSelector((state) => state.search);
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
@@ -123,12 +137,9 @@ if (search.length>0) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <HideOnScroll {...props}>
-         <AppBar>
-          <Toolbar>
-         <Paper
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: paperWidth }}
-    >
+      <Offcanvas show={show} onHide={handleClose} placement="top">
+        <Offcanvas.Header closeButton>
+
             <Autocomplete
             // multiple
             ref={searchInputRef}
@@ -175,20 +186,21 @@ new Promise(
         dispatch({type:"showSearchResults"});
       })} />
 </IconButton>
-</Paper>
 <Typography
             variant="h5"
             component="div"
             sx={{ ml:20 }}
           >
-            v1.5
+            v1.6
           </Typography>
-          </Toolbar>
-        </AppBar> 
-      </HideOnScroll>
-      <Toolbar />
+          </Offcanvas.Header>
+      </Offcanvas>
+      <Box
+        onMouseMove={handleMouseMove}
+      >
       <PlaqueCarousel />
       <HighlightPlaque />
+      </Box>
       <div ref={pageEndRef} />
     </React.Fragment>
   );
