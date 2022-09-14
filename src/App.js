@@ -52,22 +52,20 @@ function HideOnScroll(props) {
 
 
 function App(props) {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const handleMouseMove = (event) => {
-    // console.log(event.clientX, event.clientY);
-    if (event.clientY < 15 && show==false) {
-      setShow(true);    
-    }
-  };
 
   const dispatch = useDispatch();
   let search = useSelector((state) => state.search);
   const highlightPlaque = useSelector((state) => state.highlightPlaque);
-  const picsPerCol = useSelector((state) => state.picsPerCol);
+  const rowHeight = useSelector((state) => state.rowHeight);
   const totalPages = useSelector((state) => state.totalPages);
+  const showSearchBar=useSelector((state)=>state.showSearchBar);
+
+  const handleMouseMove = (event) => {
+    // console.log(event.clientX, event.clientY);
+    if (event.clientY > rowHeight*2-20 && showSearchBar==false) {
+      dispatch({type:"setShowSearchBar", payload: true})    
+    }
+  };
 
   const pageEndRef = useRef(null);
   const searchInputRef=useRef(null);
@@ -137,7 +135,7 @@ if (search.length>0) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Offcanvas show={show} onHide={handleClose} placement="top">
+      <Offcanvas show={showSearchBar} onHide={()=>dispatch({type:"setShowSearchBar", payload:false})} placement="bottom">
         <Offcanvas.Header closeButton>
 
             <Autocomplete
@@ -164,12 +162,10 @@ if (search.length>0) {
              if (search.length>0) {
 new Promise(
   (resolve)=>{
-    searchInputRef.current?.blur();
-    pageEndRef.current?.scrollIntoView({behavior: "smooth", block: "end"});
+    dispatch({type:"setShowSearchBar", payload:false});
     // wait for the keyboard on tv to disappear
     setTimeout(resolve, 3000);
   }).then(()=>{
-    pageEndRef.current?.focus();
     dispatch({type:"showSearchResults"});
   });
              }
@@ -180,7 +176,7 @@ new Promise(
           <IconButton aria-label="search" sx={{ p: '10px', m:'10px' }} >
   <SearchIcon onClick={()=>
       new Promise((resolve)=>{
-        pageEndRef.current?.scrollIntoView();
+        dispatch({type:"setShowSearchBar", payload:false});
         setTimeout(resolve, 1000);
       }).then(()=>{
         dispatch({type:"showSearchResults"});
@@ -201,7 +197,6 @@ new Promise(
       <PlaqueCarousel />
       <HighlightPlaque />
       </Box>
-      <div ref={pageEndRef} />
     </React.Fragment>
   );
 }

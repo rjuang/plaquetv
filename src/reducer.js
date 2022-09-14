@@ -16,6 +16,7 @@ const initialState = {
   highlightPlaqueHeight: 1,
   isTyping: false,
   initDone: false,
+  showSearchBar: false,
 }
 
 export default function appReducer(state = initialState, action) {
@@ -166,6 +167,20 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         initDone: true
+      }
+    }
+    case 'setShowSearchBar': {
+      if (action.payload===state.showSearchBar) {
+        return state;
+      }
+
+      if (action.payload==true && state.highlightPlaque!=null) {
+        return state;
+      }
+      
+      return {
+        ...state,
+        showSearchBar: action.payload
       }
     }
     default:
