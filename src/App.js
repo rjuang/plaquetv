@@ -6,50 +6,14 @@ import PlaqueCarousel from './Carousel';
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import HighlightPlaque from './HighlightPlaque';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import AppBar from '@mui/material/AppBar';
-import Slide from '@mui/material/Slide';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import allPlaques from "./plaques.json";
 import Box from '@mui/material/Box';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-function HideOnScroll(props) {
-  const { children, window } = props;
-
-  const highlightPlaque = useSelector((state) => state.highlightPlaque);
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-    threshold: 1
-  });
-
-  let showTopBar=!trigger;
-  if (highlightPlaque != null) {
-    showTopBar=false;
-  }
-
-  return (
-    <Slide appear={false} direction="down" 
-    // in={!trigger}
-    in={showTopBar} 
-    >
-      {children}
-    </Slide>
-  );
-}
-
-
-
+import SearchBar from './SearchBox';
 
 function App(props) {
 
@@ -62,13 +26,10 @@ function App(props) {
 
   const handleMouseMove = (event) => {
     // console.log(event.clientX, event.clientY);
-    if (event.clientY > rowHeight*2-20 && showSearchBar==false) {
+    if (event.clientY > Math.floor(rowHeight*1.8) && showSearchBar==false) {
       dispatch({type:"setShowSearchBar", payload: true})    
     }
   };
-
-  const pageEndRef = useRef(null);
-  const searchInputRef=useRef(null);
 
   const testHighlight={
     src: allPlaques[0].file
@@ -94,11 +55,8 @@ function App(props) {
     
     new Promise((resolve)=>{
       handleResize();
-      setTimeout(resolve, 500);
+      setTimeout(resolve, 1000);
     }).then(()=>new Promise((resolve)=>{
-      pageEndRef.current?.scrollIntoView();
-      setTimeout(resolve, 4500);
-    })).then(()=>new Promise((resolve)=>{
       handleResize();
       dispatch({type:'clickHighlight', payload:testHighlight});
       setTimeout(resolve, 3000);
@@ -119,85 +77,19 @@ function App(props) {
     pages.push(<PlaqueView page={i} />);
   }
 
-  const ids = allPlaques.map(p => p.id);
-  const beneficiarys = allPlaques.map(p => p.benefiary);
-  const requesters = allPlaques.map(p => p.requester);
-  const peoples = Array.from(new Set([...beneficiarys, ...requesters]));
-  const options = ids.concat(peoples);
-
-
-const paperWidth=Math.floor(window.innerWidth*0.6);
-const searchBarWidth=Math.floor(paperWidth*0.8);
-
 if (search.length>0) {
   search=search[0]
 }
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Offcanvas show={showSearchBar} onHide={()=>dispatch({type:"setShowSearchBar", payload:false})} placement="bottom">
-        <Offcanvas.Header closeButton>
-
-            <Autocomplete
-            // multiple
-            ref={searchInputRef}
-            autoHighlight          
-            handleHomeEndKeys={false}
-            options={options}
-            // defaultValue={[]}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                sx={{ ml: 2, flex: 1,  width: searchBarWidth }}
-                variant="standard"
-                // label="Search for Plaques"
-                placeholder="Name on plaque or plaque ID"
-              />
-            )}
-            onChange={(event, value)=>dispatch({ type: 'search', payload: [value,] })}
-            onFocus={()=>dispatch({type:"startTyping"})}
-            onBlur={()=>dispatch({type:"stopTyping"})}
-            onKeyDown={(event)=>{
-              if (event.key === 'Enter') {
-             if (search.length>0) {
-new Promise(
-  (resolve)=>{
-    dispatch({type:"setShowSearchBar", payload:false});
-    // wait for the keyboard on tv to disappear
-    setTimeout(resolve, 3000);
-  }).then(()=>{
-    dispatch({type:"showSearchResults"});
-  });
-             }
-              }
-            }}
-            value={search}
-          />
-          <IconButton aria-label="search" sx={{ p: '10px', m:'10px' }} >
-  <SearchIcon onClick={()=>
-      new Promise((resolve)=>{
-        dispatch({type:"setShowSearchBar", payload:false});
-        setTimeout(resolve, 1000);
-      }).then(()=>{
-        dispatch({type:"showSearchResults"});
-      })} />
-</IconButton>
-<Typography
-            variant="h5"
-            component="div"
-            sx={{ ml:20 }}
-          >
-            v1.6
-          </Typography>
-          </Offcanvas.Header>
-      </Offcanvas>
+    <div>
+      <SearchBar />
       <Box
         onMouseMove={handleMouseMove}
       >
       <PlaqueCarousel />
-      <HighlightPlaque />
       </Box>
-    </React.Fragment>
+      <HighlightPlaque />
+    </div>
   );
 }
 

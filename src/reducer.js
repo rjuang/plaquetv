@@ -47,7 +47,8 @@ export default function appReducer(state = initialState, action) {
     return {
           ...state,
           highlightPlaque: searchResults[0].file,
-          searchResultPage:page
+          searchResultPage:page,
+          showSearchBar: false
         }
 
     
@@ -94,7 +95,8 @@ export default function appReducer(state = initialState, action) {
     case 'clickHighlight': {
       return {
         ...state,
-        highlightPlaque: action.payload.src
+        highlightPlaque: action.payload.src,
+        showSearchBar: false
       }
     }
     case 'setWinSize': {
