@@ -9,13 +9,18 @@ import allPlaques from "./plaques.json";
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import Offcanvas from 'react-bootstrap/Offcanvas';               
+import Paper from '@mui/material/Paper';
+import Offcanvas from 'react-bootstrap/Offcanvas'; 
+import Card from 'react-bootstrap/Card';   
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';           
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 export function SearchBar() {
   const dispatch = useDispatch();
   let search = useSelector((state) => state.search);
   const showSearchBar = useSelector((state) => state.showSearchBar);
+  const rowHeight = useSelector((state) => state.rowHeight);
 
   const ids = allPlaques.map(p => p.id);
   const beneficiarys = allPlaques.map(p => p.benefiary);
@@ -23,17 +28,22 @@ export function SearchBar() {
   const peoples = Array.from(new Set([...beneficiarys, ...requesters]));
   const options = ids.concat(peoples);
 
-
-  const paperWidth = Math.floor(window.innerWidth * 0.6);
+  
+  const paperWidth = Math.floor(window.innerWidth * 0.7);
   const searchBarWidth = Math.floor(paperWidth * 0.8);
+  const offCanvasHeight=Math.floor(rowHeight*0.4);
+  const paperHeight=Math.floor(offCanvasHeight*0.6);
 
   if (search.length > 0) {
     search = search[0]
   }
   return (
-    <Offcanvas show={showSearchBar} onHide={() => dispatch({ type: "setShowSearchBar", payload: false })} placement="bottom">
-      <Offcanvas.Header closeButton>
-
+    <Offcanvas show={showSearchBar} onHide={() => dispatch({ type: "setShowSearchBar", payload: false })} placement="bottom" style={{height: offCanvasHeight}}>
+      <Offcanvas.Header closeButton >
+      <Card style={{ width: paperWidth }}>
+      <Card.Title>
+        <Row>
+          <Col>
         <Autocomplete
           // multiple
           autoHighlight
@@ -43,9 +53,9 @@ export function SearchBar() {
           renderInput={(params) => (
             <TextField
               {...params}
-              sx={{ ml: 2, flex: 1, width: searchBarWidth }}
+              sx={{ ml: 2, flex: 1, width: searchBarWidth, display:"inline-block" }}
               variant="standard"
-              // label="Search for Plaques"
+              label="Search for Plaques"
               placeholder="Name on plaque or plaque ID"
             />
           )}
@@ -68,7 +78,10 @@ export function SearchBar() {
           }}
           value={search}
         />
-        <IconButton aria-label="search" sx={{ p: '10px', m: '10px' }} >
+        </Col>
+        
+        <Col>
+        <IconButton aria-label="search" sx={{display:"inline-block"}} >
           <SearchIcon onClick={() =>
             new Promise((resolve) => {
               dispatch({ type: "setShowSearchBar", payload: false });
@@ -77,14 +90,20 @@ export function SearchBar() {
               dispatch({ type: "showSearchResults" });
             })} />
         </IconButton>
+        </Col>
+        </Row>
+        </Card.Title>
+        </Card>
         <Typography
           variant="h5"
           component="div"
-          sx={{ ml: 20 }}
+          // sx={{ m: 20 }}
         >
-          v1.7
+          DTT<br/>
+          v1.8
         </Typography>
-      </Offcanvas.Header>
+        </Offcanvas.Header>
+      <Offcanvas.Body />
     </Offcanvas>
   );
 }
