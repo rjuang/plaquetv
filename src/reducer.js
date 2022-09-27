@@ -36,50 +36,41 @@ export default function appReducer(state = initialState, action) {
     }
     case 'showSearchResults': {
       const searchTerm=state.search;
-      const searchResults=state.searchResults;
 
-      if (searchTerm.length==0||searchResults.length==0) {
+      if (searchTerm.length==0) {
         return state;
       }
 
-        const page=getSearchPage(state.allPlaques, state.picsPerCol, searchResults[0]);
+      const searchResults=searchPlaques(searchTerm);
+
+      if (searchResults.length==0) {
+        return state;
+      }
+
+      const page=getSearchPage(state.allPlaques, state.picsPerCol, searchResults[0]);
 
     return {
           ...state,
+          searchResults: searchResults,       
           highlightPlaque: searchResults[0].file,
           searchResultPage:page,
           showSearchBar: false
         }
-
     
     }
     case 'search':{
       const searchTerm=action.payload;
 
-      let newState={
+      if (state.search==searchTerm) {
+        return state;
+      }
+      
+      return {
         ...state,
         search:searchTerm
       };
-
-      if (state.searchResultPage!=state.currentPage) {
-        newState={
-          ...newState,
-          searchResultPage: state.currentPage,
-        }
-      }
-
-      if (searchTerm.length!=0) {
-      const searchResults=searchPlaques(searchTerm);
-
-      newState={
-        ...newState,
-        searchResults: searchResults,       
-      };
     }
-
-      return newState;
-    }
-        case 'setAllPlaques':{
+    case 'setAllPlaques':{
       return {
         ...state,
         allPlaques: action.payload.allPlaques,
@@ -145,26 +136,26 @@ export default function appReducer(state = initialState, action) {
         highlightPlaqueHeight: highlightPlaqueHeight
       }
     }
-    case 'startTyping':{
-      if (state.isTyping) {
-        return state;
-      }
+    // case 'startTyping':{
+    //   if (state.isTyping) {
+    //     return state;
+    //   }
 
-      return {
-        ...state,
-        isTyping: true
-      }
-    }
-    case 'stopTyping':{
-      if (!state.isTyping) {
-        return state;
-      }
+    //   return {
+    //     ...state,
+    //     isTyping: true
+    //   }
+    // }
+    // case 'stopTyping':{
+    //   if (!state.isTyping) {
+    //     return state;
+    //   }
 
-      return {
-        ...state,
-        isTyping: false
-      }
-    }
+    //   return {
+    //     ...state,
+    //     isTyping: false
+    //   }
+    // }
     case 'initDone': {
       return {
         ...state,
@@ -180,10 +171,19 @@ export default function appReducer(state = initialState, action) {
         return state;
       }
       
-      return {
+      let newState={
         ...state,
         showSearchBar: action.payload
+      };
+
+      if (state.searchResultPage!=state.currentPage) {
+        newState={
+          ...newState,
+          searchResultPage: state.currentPage,
+        }
       }
+
+      return newState;
     }
     default:
       return state

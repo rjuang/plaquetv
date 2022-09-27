@@ -60,8 +60,8 @@ export function SearchBar() {
             />
           )}
           onChange={(event, value) => dispatch({ type: 'search', payload: [value,] })}
-          onFocus={() => dispatch({ type: "startTyping" })}
-          onBlur={() => dispatch({ type: "stopTyping" })}
+          // onFocus={() => dispatch({ type: "startTyping" })}
+          // onBlur={() => dispatch({ type: "stopTyping" })}
           onKeyDown={(event) => {
             if (event.key === 'Enter') {
               if (search.length > 0) {
