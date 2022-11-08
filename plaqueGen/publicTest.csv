@@ -1,0 +1,180 @@
+index,beneText,beneTextLang,sponsorText,sponsorTextLang,plaqueType,plaqueLocation
+0,xxx xxxxxxx,en,xxxxxxx,en,mmb,WMT
+1,xxxx xxxxx,en,xxxxxxx,en,mmb,WMT
+2,xxxxxxxxx xxxxxx,en,xxxx xxxxxx,en,mmb,WMT
+3,xxxxxx xxxxxx,en,xxxx xxxxxx,en,mmb,WMT
+4,xxxxxx,en,xxxxxx xxxxx,en,mmb,GF
+5,xxxxxx,en,xxxxxx xxxxx,en,mmb,GF
+6,xxxxx xx,en,xxxxxxxxx,en,rebirth,GF
+7,xxxx xxxxxx,en,xxxxxxxxx,en,rebirth,GF
+8,xxxxx xxxxx,en,xxxx xx,en,mmb,WMT
+9,xxx xxxxx,en,xxxx xx,en,mmb,WMT
+10,xxxx xx,en,xxxxx,en,rebirth,WMT
+11,xxxxx xx,en,xxxxx,en,rebirth,WMT
+12,xxxx xxxxxxx,en,xxxxx xxxxxx,en,mmb,WMT
+13,xxxxx xxx xxxxxx,en,xxxxx xxxxxx,en,mmb,WMT
+14,ễễ ễễễ ễễễễễ,vi,ễễễễễễ ễễễ,vi,rebirth,GF
+15,ễễễễễễ ễễễ ễễễễ,vi,ễễễễễễ ễễễ,vi,rebirth,GF
+16,ễễễễễễ ễễễễ ễễễễễ,vi,ễễễễ ễễễ,vi,rebirth,GF
+17,ễễ ễễễễ ễễ ễễễ,vi,ễễễễ ễễễ,vi,mmb,GF
+18,xxxxx xxx,en,xx xxx xx,en,mmb,WMT
+19,정정정,ko,xxxx xx,en,mmb,WMT
+20,정정정,ko,xxxx xx,en,mmb,WMT
+21,xxx xxxx,en,xxxxx,en,mmb,GF
+22,xxxxx xxxxx,en,xxxxx,en,mmb,GF
+23,xxxxxx xxxx,en,xxx xxxx,en,mmb,GF
+24,xxxxxxx xx,en,xxx xxxx,en,mmb,GF
+25,xxxxx xx,en,xx xxx,en,mmb,GF
+26,xxxx xx,en,xx xxx,en,mmb,GF
+27,xxxx xx,en,xx,en,mmb,GF
+28,xxxx xxxx,en,xx,en,mmb,GF
+29,xxx xx,en,xxx xxxx,en,rebirth,GF
+30,xxxxxxx xxxx,en,xxx xxxx,en,mmb,GF
+31,xxxx xxx xxxxx,en,xxxxxxx xxxx,en,rebirth,GF
+32,xxxx xxx xxxx xxxx,en,xxxxxxx xxxx,en,rebirth,GF
+33,正正正,zh,xxxxx xx,en,mmb,WMT
+34,正正正,zh,xxxxx xx,en,mmb,WMT
+35,xxx xxx xxx,en,xxxx xx,en,mmb,GF
+36,xxxxxx xx xx xxxxx xxx,en,xxxx xx,en,mmb,GF
+37,xxx xxxxxx,en,xxxx xxxx,en,mmb,WMT
+38,xxx xxxxxx,en,xxxx xxxx,en,mmb,WMT
+39,xxx xxxxxx,en,xxxxx xxxxxx,en,mmb,WMT
+40,xxx xx,en,xxxxx xxxxxx,en,mmb,WMT
+41,xxxx xx,en,xxxxx xx,en,rebirth,WMT
+42,xxxx xx,en,xxxxx xx,en,rebirth,WMT
+43,xxxxx xxxxxxx,en,xxxxxx xxxxxxxx,en,mmb,WMT
+44,xxxxx xxxxxxxx,en,xxxxxx xxxxxxxx,en,mmb,WMT
+45,正正正正正,zh,xx xxxx,en,rebirth,WMT
+46,正正正,zh,xx xxxx,en,rebirth,WMT
+47,ễễễễễễ ễễễ ễễễ ễễễ,vi,xxx,en,mmb,GF
+48,ễễễễễễ ễễễ ễễễễ,vi,xxx,en,mmb,GF
+49,정정정,ko,ễễễễ ễễ,vi,mmb,WMT
+50,정정정,ko,ễễễễ ễễ,vi,mmb,WMT
+51,ễễ ễễễễ ễễễ,vi,xxxxxxxxx xx,en,mmb,WMT
+52,xxxxx xx,en,xxxxxxxxx xx,en,mmb,WMT
+53,xxxx xx,en,xxxxx xxx,en,mmb,WMT
+54,xx xxxxx,en,xxxxx xxx,en,mmb,WMT
+55,xxxx,en,xxxx xx,en,mmb,WMT
+56,xx,en,xxxx XX,en,mmb,WMT
+57,ễễ ễễ ễễễễễễ,vi,xxxx xx,en,mmb,GF
+58,ễễ ễễễễễ ễễễ,vi,xxxx xx,en,mmb,GF
+59,xxxxxxxx xxxxxxxxxx,en,xxxx xxxx,en,mmb,WMT
+60,xxxxxxxxx xxxxxxx,en,xxxx xxxx,en,mmb,WMT
+61,xxxxx,en,xxxx Xx,en,mmb,GF
+62,xxxx,en,xxxx Xx,en,mmb,GF
+63,xxxxxxx xxxxxxx,en,xxxxxxx,en,mmb,WMT
+64,xxxxx xxxxxxx xxxxxxx,en,xxxxxxx,en,mmb,WMT
+65,xxxx xxxxxxxx,en,xxxx,en,mmb,WMT
+66,xxxxxxxx,en,xxxx,en,mmb,WMT
+67,xxxxxxx,en,xxxxx,en,mmb,WMT
+68,xxxx xxxx,en,xxxxx,en,mmb,WMT
+69,正正正,zh,正正正,zh,mmb,GF
+70,正正正,zh,正正正,zh,mmb,GF
+71,xxx xxxx,en,xxxx Xx,en,mmb,WMT
+72,xxxx xxxx xxxx,en,xxxx Xx,en,rebirth,WMT
+73,xxxxx xxx,en,xxxx xxxx,en,mmb,WMT
+74,xxxx xxxxx xxx,en,xxxx xxxx,en,mmb,WMT
+75,xxxxxxxx xxxxx,en,xxxxx xxxxx,en,mmb,WMT
+76,xxxxx xxxxx,en,xxxxx xxxxx,en,mmb,WMT
+77,xxxx xxxx,en,xxxxx xxxx,en,mmb,WMT
+78,xxxxxxxx xxxxxx,en,xxxxx xxxx,en,mmb,WMT
+79,xxxx xxxx,en,xxxxx Xx,en,mmb,WMT
+80,xxxx xxxx,en,xxxxx Xx,en,mmb,WMT
+81,정정정,ko,xxxx Xx,en,mmb,WMT
+82,정정정,ko,xxxx Xx,en,mmb,WMT
+83,xxx,en,xxxxxx xxxxxx,en,mmb,WMT
+84,xxxxxxx,en,xxxxxx xxxxxx,en,mmb,WMT
+85,ễễ ễễễễ ễễễ ễễễễễ,vi,Xx,en,mmb,WMT
+86,ễễ ễễễễ ễễễ ễễễễễ,vi,Xx,en,mmb,WMT
+87,XXXXXX XXXXXXXXX XXXXXXXX XXXXXXX,en,XXXXX XXXXXXXX,en,mmb,WMT
+88,ÑÑÑÑ ÑÑÑÑÑ ÑÑÑÑÑÑÑÑ ÑÑÑÑÑÑÑ,vi,XXXXX XXXXXXXX,en,mmb,WMT
+89,정정정정,ko,Xx,en,mmb,WMT
+90,정정정정,ko,Xx,en,mmb,WMT
+91,xxxx xxx,en,xxx xxxxxxxx,en,mmb,WMT
+92,xxxx xxxx,en,xxx xxxxxxxx,en,mmb,WMT
+93,xxxxxxxxx xxxxxxx,en,xxxxxxx xxxxxxxx,en,rebirth,WMT
+94,xxxx xxxxxxx,en,xxxxxxx xxxxxxxx,en,rebirth,WMT
+95,xxxxx xxxx,en,xxxx,en,mmb,WMT
+96,xxxxx xxxx,en,xxxx,en,mmb,WMT
+97,xxx x xxxx,en,xxx xxxx xxxx,en,rebirth,WMT
+98,xxxx x xxxx,en,xxx xxxx xxxx,en,mmb,WMT
+99,正正正,zh,正正,zh,mmb,WMT
+100,正正正,zh,正正,zh,mmb,WMT
+101,xxxxx xxxxxxxx,en,xxxxx xxxxxxxx,en,mmb,WMT
+102,xxxx xxxxxxxx,en,xxxxx xxxxxxxx,en,mmb,WMT
+103,xxxxxx,en,,en,mmb,WMT
+104,xxx xx,en,xxxxxx,en,mmb,WMT
+105,ễễễễ ễễễ ễễễễễ,vi,ễễễễ,vi,rebirth,WMT
+106,ễễễễễễ ễễễ ễễễ,vi,ễễễễ,vi,mmb,WMT
+107,xxxxxxxxxx xxxxx,en,Xx,en,rebirth,WMT
+108,xxxxxxxxxx xxxxx,en,Xx,en,rebirth,WMT
+109,xxxxxxx xxxx,en,Xx,en,mmb,WMT
+110,xxxxxxxxx xxxxx,en,Xx,en,mmb,WMT
+111,xxxxxxx xxx,en,xxxxxxxxxx xxx,en,mmb,WMT
+112,xxxxxxx xxx,en,xxxxxxxxxx xxx,en,mmb,WMT
+113,xxxxxxx xx,en,xxxxxxx xxx,en,rebirth,WMT
+114,xxxxxxx xxx,en,,en,rebirth,WMT
+115,xxxxxxx xx,en,xxxxxxx xxxx,en,mmb,WMT
+116,xxxxxx xx,en,xxxxxxx xxxx,en,mmb,WMT
+117,xxxxxxx xxxx,en,xxxxxxxxx xxxx,en,mmb,WMT
+118,xxxxxxxxx xxxx,en,,en,mmb,WMT
+119,xxxxxxxxx xxx,en,xxxx xxxx,en,mmb,WMT
+120,xxxxxx xxx,en,xxxx xxxx,en,mmb,WMT
+121,xxxxxxx xxxx,en,xxxxxxx xxxx,en,rebirth,WMT
+122,xxxxxxxx xxx,en,xxxxxxx xxxx,en,rebirth,WMT
+123,xxxxxxx xxxx,en,xxxxxxxx xxx,en,mmb,WMT
+124,xxxxxxx xxxx,en,xxxxxxxx xxx,en,mmb,WMT
+125,xxxxxxxxx xxx,en,,en,mmb,WMT
+126,xxxxxx xxx,en,xxxxxxxxx xxx,en,mmb,WMT
+127,xxxxxx xxxx,en,xxxxxxx,en,mmb,WMT
+128,xxxxxxxx xxx,en,xxxxxxx,en,mmb,WMT
+129,xxxxxxxx xxxx,en,xxxxxxxx xxxx,en,mmb,WMT
+130,xxxxxx xxxx,en,xxxxxxxx xxxx,en,mmb,WMT
+131,xxxxxxxx xxx,en,xxxxxx xxxx,en,mmb,WMT
+132,xxxxx xxxx,en,xxxxxx xxxx,en,mmb,WMT
+133,xxxxxxxx xxxxx,en,xxxxxxxx xxxx,en,mmb,WMT
+134,xxxx xxx,en,xxxxxxxx xxxx,en,mmb,WMT
+135,xxxxxx xxxx,en,xxxxxx xxxx,en,mmb,WMT
+136,xxxxxx,en,xxxxxx xxxx,en,mmb,WMT
+137,xxxxxx xx,en,xxxxxxx xx,en,mmb,WMT
+138,xxxxxxx xxxx,en,xxxxxxx xx,en,rebirth,WMT
+139,xxxxxxxx xx,en,xxxxxxx xx,en,mmb,WMT
+140,xxxxx xxxx,en,xxxxxxx xx,en,mmb,WMT
+141,xxxxxxxx xxx,en,xxxxxxxxx xxx,en,mmb,WMT
+142,xxxxxx xxx,en,xxxxxxxxx xxx,en,mmb,WMT
+143,xxxxxxxxx xxx,en,xxxxx xxx,en,mmb,WMT
+144,xxxxxxxx xxxx,en,xxxxx xxx,en,mmb,WMT
+145,xxxxxxxxx xxx,en,xxxxxxxx xxxx,en,mmb,WMT
+146,xxxxxxxxx xxxx,en,xxxxxxxx xxxx,en,mmb,WMT
+147,xxxxxxx xxx,en,xxxxx,en,mmb,WMT
+148,xxxxxxx xxx,en,xxxxx,en,mmb,WMT
+149,xxxxxxxxx xxx,en,xxxxxx xxx,en,mmb,WMT
+150,xxxxxxxxx xxx,en,xxxxxx xxx,en,mmb,WMT
+151,xxxxxxxxx xxxxx,en,,en,mmb,WMT
+152,xxxxxxxxx xxxxx,en,,en,mmb,WMT
+153,xxxxxx,en,,en,mmb,WMT
+154,xxxxxx,en,,en,mmb,WMT
+155,xxx xxx xxxxx,en,xxx xxx xxxxx,en,mmb,WMT
+156,xxxx xxxxxxxx,en,xxx xxx xxxxx,en,rebirth,WMT
+157,xxxx xxx,en,xxx xxx,en,rebirth,GF
+158,xxxx xx,en,xxx xxx,en,rebirth,GF
+159,xx xxxxx xxx,en,xxxxx xxx,en,mmb,WMT
+160,xxxxxx xxx,en,xxxxx xxx,en,mmb,WMT
+161,xxxx xxx,en,xxxxxxx xxxxx,en,rebirth,GF
+162,xxxxxxx xx,en,xxxxxx xxxxx,en,rebirth,GF
+163,xxxxx xxxx,en,xxxxxx xxxx,en,mmb,WMT
+164,xxxxxxx xxxx,en,xxxxxx xxxx,en,rebirth,WMT
+165,ễễễễ ễễễễ ễễễễễ,vi,ễễễ ễễễễ,vi,mmb,WMT
+166,ễễễễ ễễễễễễ ễễễ,vi,ễễễ ễễễễ,vi,mmb,WMT
+167,ễễễễễễ ễễễễ,vi,,en,mmb,WMT
+168,ễễễễ ễễễễễ,vi,ễễễễễễ ễễễễ,vi,mmb,WMT
+169,xxx,en,,en,mmb,WMT
+170,xxxxxx xxxxxx,en,xxx,en,mmb,WMT
+171,xxxxxx,en,xxxxxxx,en,mmb,WMT
+172,xxxx,en,xxxxxxx,en,mmb,WMT
+173,xxxx xxxxx,en,xxxxx xxxxx,en,mmb,WMT
+174,xxxxxxxx xxxxxx,en,xxxxx xxxxx,en,mmb,WMT
+175,xxxxx xxxxx,en,xxxx xxxxx,en,mmb,WMT
+176,xxxxx xxxxx,en,xxxx xxxxx,en,rebirth,WMT
+177,xxxxxxxx xxxx xxxxx,en,xxxxx xxxxxx,en,mmb,GF
+178,xxxxxx xxx xxx,en,xxxxx xxxxxx,en,mmb,GF
