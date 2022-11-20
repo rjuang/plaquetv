@@ -17,6 +17,7 @@
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.0.0",
     "react-grid-gallery": "^0.5.5",
+    "react-progressive-graceful-image": "^0.7.0",
     "react-redux": "^8.0.1",
     "react-responsive-carousel": "^3.2.23",
     "react-scripts": "5.0.1",

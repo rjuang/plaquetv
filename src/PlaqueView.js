@@ -1,18 +1,13 @@
 
 import React, { useState } from 'react';
 import Gallery from 'react-grid-gallery';
-import { getImages,getSearchView } from './plaques';
+import { getImages,getSearchView, getGalleryPlaqueInfo } from './plaques';
 
 import { useDispatch,useSelector } from 'react-redux';
 
  function getImagesFromMetadata(picsPerCol, metadata) {
     let images = metadata.map(
-      (e) => ({
-        src: e.file,
-        thumbnail: e.previewFile,
-        thumbnailWidth: 120,
-        thumbnailHeight: 365,
-      })
+      getGalleryPlaqueInfo
     );
   
     let imagesPerPage = picsPerCol * 2;

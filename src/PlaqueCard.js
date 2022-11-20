@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import DialogContent from '@mui/material/DialogContent';
-
+import ProgressiveImage from 'react-progressive-graceful-image';
 
 function PlaqueCard() {
   const dispatch = useDispatch();
@@ -29,7 +29,9 @@ function PlaqueCard() {
     ref={elementRef} 
     >
         <Card>
-          <img src={highlightPlaque} style={{height:highlightPlaqueHeight.toString()+"px",}} />
+        <ProgressiveImage src={highlightPlaque.src} placeholder={highlightPlaque.thumbnail}>
+  {(src) => <img src={src} style={{height:highlightPlaqueHeight.toString()+"px"}} />}
+</ProgressiveImage>
         </Card>
         </DialogContent>
   );

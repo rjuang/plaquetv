@@ -14,6 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import allPlaques from "./plaques.json";
 import Box from '@mui/material/Box';
 import SearchBar from './SearchBox';
+import {getGalleryPlaqueInfo} from "./plaques";
 
 function App(props) {
 
@@ -31,9 +32,7 @@ function App(props) {
     }
   };
 
-  const testHighlight={
-    src: allPlaques[0].file
-  };
+  const testHighlight=getGalleryPlaqueInfo(allPlaques[0]);
 
   useEffect(() => {
 

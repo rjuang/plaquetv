@@ -93,4 +93,13 @@ export function getSearchPage(allPlaques, picsPerCol, searchResult) {
 
   return page;
 }
+
+export function getGalleryPlaqueInfo(plaque) {
+  return {
+    src: plaque.file,
+    thumbnail: plaque.previewFile,
+    thumbnailWidth: 120,
+    thumbnailHeight: 365,
+  };
+}
 export default getImages;

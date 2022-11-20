@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit'
 import searchPlaques from './searchLogic';
-import { preprocessPlaques} from './plaques';
+import { preprocessPlaques, getGalleryPlaqueInfo} from './plaques';
 import {getSearchPage} from './plaques';
 
 const initialState = { 
@@ -52,7 +52,7 @@ export default function appReducer(state = initialState, action) {
     return {
           ...state,
           searchResults: searchResults,       
-          highlightPlaque: searchResults[0].file,
+          highlightPlaque: getGalleryPlaqueInfo(searchResults[0]),
           searchResultPage:page,
           showSearchBar: false
         }
@@ -86,7 +86,7 @@ export default function appReducer(state = initialState, action) {
     case 'clickHighlight': {
       return {
         ...state,
-        highlightPlaque: action.payload.src,
+        highlightPlaque: action.payload,
         showSearchBar: false
       }
     }
