@@ -98,8 +98,8 @@ export function getGalleryPlaqueInfo(plaque) {
   return {
     src: plaque.file,
     thumbnail: plaque.previewFile,
-    thumbnailWidth: 120,
-    thumbnailHeight: 365,
+    thumbnailWidth: 235,
+    thumbnailHeight: 720,
   };
 }
 export default getImages;

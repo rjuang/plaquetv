@@ -1,5 +1,5 @@
 
-from PIL import Image, ImageFont, ImageDraw 
+from PIL import Image, ImageFont, ImageDraw
 import pandas as pd
 
 commonBeneFont = ImageFont.truetype('NotoSans-Regular.ttf', 90)
@@ -98,7 +98,7 @@ def genPlaque(id, beneText,beneTextLang,
   rotated_text_layer = text_layer.rotate(270.0, expand=1)
 
   out = Image.alpha_composite(template, rotated_text_layer)
-  preview=out.reduce(7)
+  preview=out.resize((235, 720), resample=Image.LANCZOS)
 
 
   outFile=fileName+".png"
@@ -135,3 +135,4 @@ io=open("plaques.json", "w")
 import json
 json.dump(plaques,io)
 io.close()
+
