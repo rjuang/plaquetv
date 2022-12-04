@@ -16,6 +16,8 @@ import Box from '@mui/material/Box';
 import SearchBar from './SearchBox';
 import {getGalleryPlaqueInfo} from "./plaques";
 
+const NUM_ROWS = 3
+
 function App(props) {
 
   const dispatch = useDispatch();
@@ -38,7 +40,7 @@ function App(props) {
 
 
     function handleResize() {
-      let rowHeight = (window.innerHeight - 2) * 0.5
+      let rowHeight = (window.innerHeight - 2) / NUM_ROWS
       var scale = rowHeight / 2550;
       var picWidth = 834 * scale;
       var picsPerCol = Math.floor(window.innerWidth / picWidth) + 1;

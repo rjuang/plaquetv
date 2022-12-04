@@ -5,12 +5,14 @@ import { getImages,getSearchView, getGalleryPlaqueInfo } from './plaques';
 
 import { useDispatch,useSelector } from 'react-redux';
 
+const NUM_ROWS = 3;
+
  function getImagesFromMetadata(picsPerCol, metadata) {
     let images = metadata.map(
       getGalleryPlaqueInfo
     );
   
-    let imagesPerPage = picsPerCol * 2;
+    let imagesPerPage = picsPerCol * NUM_ROWS;
     for (var i = images.length; i < imagesPerPage; i++) {
       images.push({
         src: "background.png",
@@ -22,36 +24,6 @@ import { useDispatch,useSelector } from 'react-redux';
   
     return images;
   }
-
-function arrangeForDisplay(plaques, picsPerCol) {
-    let arr=Array(plaques.length);
-    let left=0, right=0, i=0;
-
-    if (picsPerCol%2===1) {
-        let center=(picsPerCol-1)/2;
-        arr[center]=plaques[0];
-        arr[center+picsPerCol]=plaques[1];
-
-        left=center-1;
-        right=center+1;
-        i=2;
-    } else {
-        right=picsPerCol/2;
-        left=right-1;
-    }
-
-    for (; i<plaques.length; i=i+4) {
-        arr[left]=plaques[i];
-        arr[left+picsPerCol]=plaques[i+1];
-        arr[right]=plaques[i+2]; 
-        arr[right+picsPerCol]=plaques[i+3];
-
-        left=left-1;
-        right=right+1;
-    }
-
-    return arr;
-}
 
 function PlaqueView(props) {
   const dispatch = useDispatch();
@@ -73,7 +45,7 @@ function PlaqueView(props) {
   //   plaques = getImages(allPlaques, picsPerCol, page);
   // }
 
-  const arrangedPlaques=arrangeForDisplay(getImagesFromMetadata(picsPerCol,plaques), picsPerCol);
+  const arrangedPlaques=getImagesFromMetadata(picsPerCol, plaques);
 
   const onClick=(index)=>
     dispatch({
@@ -89,7 +61,7 @@ function PlaqueView(props) {
         <Gallery
 images={arrangedPlaques}
 enableLightbox={false}
-enableImageSelection={false} rowHeight={rowHeight} margin={0} maxRows={2}
+enableImageSelection={false} rowHeight={rowHeight} margin={0} maxRows={NUM_ROWS}
 onClickThumbnail={onClick} />
     </div>);
 }

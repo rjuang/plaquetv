@@ -2,12 +2,14 @@
 import { useSelector } from 'react-redux'
 import allPlaques from "./plaques.json";
 
+const NUM_ROWS = 3;
+
 export function preprocessPlaques(picsPerCol) {
   const mmbPlaques=allPlaques.filter(p=>p.type==="mmb");
   const rebirthPlaques=allPlaques.filter(p=>p.type==="rebirth");
   // const wishPlaques=allPlaques.filter(p=>p.type==="wish");
   
-  const imagesPerPage = picsPerCol * 2;
+  const imagesPerPage = picsPerCol * NUM_ROWS;
   
   const pad1Len=Math.ceil(mmbPlaques.length/imagesPerPage)*imagesPerPage-mmbPlaques.length;
   const pad2Len=Math.ceil(rebirthPlaques.length/imagesPerPage)*imagesPerPage-rebirthPlaques.length;
@@ -56,9 +58,9 @@ export function preprocessPlaques(picsPerCol) {
 
 export function getImages(allPlaques, picsPerCol, page) {
 
-  const imagesPerPage=picsPerCol*2;
+  const imagesPerPage=picsPerCol * NUM_ROWS;
   const start=imagesPerPage*page;
-  const end=imagesPerPage*(page+1);
+  const end=imagesPerPage*(page+NUM_ROWS-1);
 
   return allPlaques.slice(start, end);
 }
@@ -72,7 +74,7 @@ export function getSearchView(allPlaques, picsPerCol, searchResult) {
     return [];
   }
 
-  const imagesPerPage=picsPerCol*2;
+  const imagesPerPage=picsPerCol * NUM_ROWS;
   const page=(resultIndex-(resultIndex%imagesPerPage))/imagesPerPage;
 
   return getImages(allPlaques, picsPerCol, page);
@@ -88,7 +90,7 @@ export function getSearchPage(allPlaques, picsPerCol, searchResult) {
     return -1;
   }
 
-  const imagesPerPage=picsPerCol*2;
+  const imagesPerPage=picsPerCol * NUM_ROWS;
   const page=(resultIndex-(resultIndex%imagesPerPage))/imagesPerPage;
 
   return page;

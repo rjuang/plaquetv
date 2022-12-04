@@ -3,6 +3,7 @@ import searchPlaques from './searchLogic';
 import { preprocessPlaques, getGalleryPlaqueInfo} from './plaques';
 import {getSearchPage} from './plaques';
 
+const NUM_ROWS = 3;
 const initialState = { 
   totalPages: 0,
   search: [],
@@ -104,7 +105,7 @@ export default function appReducer(state = initialState, action) {
       // }
 
       const picsPerCol=action.payload.picsPerCol;
-      const imagesPerPage=picsPerCol*2;
+      const imagesPerPage=picsPerCol*NUM_ROWS;
       const allPlaques=preprocessPlaques(picsPerCol);
       const totalPages=Math.round(allPlaques.length/imagesPerPage);
    
